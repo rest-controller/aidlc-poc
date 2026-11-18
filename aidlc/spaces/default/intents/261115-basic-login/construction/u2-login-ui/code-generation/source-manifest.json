@@ -1,0 +1,17 @@
+{
+  "stage": "code-generation",
+  "unit": "u2-login-ui",
+  "version": 1,
+  "writes": [
+    { "path": "frontend/.env.example" },
+    { "path": "frontend/.gitignore" },
+    { "path": "frontend/.prettierrc" },
+    { "path": "frontend/eslint.config.js" },
+    { "path": "frontend/index.html" },
+    { "path": "frontend/package.json" },
+    { "path": "frontend/package-lock.json" },
+    { "path": "frontend/tsconfig.json" },
+    { "path": "frontend/vite.config.ts" },
+    { "path": "frontend/src/" }
+  ]
+}

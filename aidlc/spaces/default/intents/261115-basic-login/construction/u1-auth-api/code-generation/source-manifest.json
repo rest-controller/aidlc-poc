@@ -1,0 +1,8 @@
+{
+  "stage": "code-generation",
+  "unit": "u1-auth-api",
+  "version": 1,
+  "writes": [
+    { "path": "backend/" }
+  ]
+}

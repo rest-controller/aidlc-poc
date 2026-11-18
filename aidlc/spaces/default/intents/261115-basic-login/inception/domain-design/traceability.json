@@ -1,0 +1,10 @@
+{
+  "stage": "domain-design",
+  "upstream_ids": ["US1.1", "US1.2", "US2.1", "US2.2"],
+  "coverage": [
+    { "id": "US1.1", "status": "OK", "target": "LoginUI, AuthApi, DemoCredential" },
+    { "id": "US1.2", "status": "OK", "target": "LoginUI, AuthApi" },
+    { "id": "US2.1", "status": "OK", "target": "LoginUI, AuthApi" },
+    { "id": "US2.2", "status": "OK", "target": "LoginUI, AuthApi" }
+  ]
+}

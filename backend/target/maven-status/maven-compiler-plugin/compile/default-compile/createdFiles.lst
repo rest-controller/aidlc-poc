@@ -1,0 +1,8 @@
+com\example\authapi\LoginResult.class
+com\example\authapi\JsonConfig.class
+com\example\authapi\DemoCredential.class
+com\example\authapi\LoginController.class
+com\example\authapi\AuthApiApplication.class
+com\example\authapi\LoginExceptionHandler.class
+com\example\authapi\CorsConfig.class
+com\example\authapi\LoginRequest.class

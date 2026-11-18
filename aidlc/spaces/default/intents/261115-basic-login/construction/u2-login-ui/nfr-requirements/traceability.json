@@ -1,0 +1,11 @@
+{
+  "stage": "nfr-requirements",
+  "unit": "u2-login-ui",
+  "upstream_ids": ["NFR1", "NFR2", "NFR3", "NFR4"],
+  "coverage": [
+    { "id": "NFR1", "status": "OK", "target": "NFR1.1, NFR1.2" },
+    { "id": "NFR2", "status": "OK", "target": "NFR2.1, NFR2.2" },
+    { "id": "NFR3", "status": "N/A", "target": "request validation happens at the backend boundary, delivered by u1-auth-api" },
+    { "id": "NFR4", "status": "Deferred", "target": "code-generation" }
+  ]
+}
