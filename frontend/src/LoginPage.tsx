@@ -1,5 +1,5 @@
-import { FormEvent, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FormEvent, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { login } from './loginApi';
 
 type Status = 'idle' | 'submitting' | 'failed' | 'unreachable';
@@ -11,15 +11,28 @@ const MESSAGES: Record<Status, string> = {
   unreachable: 'Unable to reach the server. Please try again.',
 };
 
+const SIGNED_UP_MESSAGE = 'Sign-up done. You can log in now.';
+
 export default function LoginPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState<Status>('idle');
+  // One-time flag from a successful sign-up, read once from router state (BR1.5).
+  const [signedUp, setSignedUp] = useState(
+    () => (location.state as { signedUp?: boolean } | null)?.signedUp === true,
+  );
+
+  useEffect(() => {
+    // Replace the history entry so a reload shows nothing; the message stays in this state.
+    if (signedUp && location.state) navigate('/', { replace: true, state: null });
+  }, [signedUp, location.state, navigate]);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (status === 'submitting') return;
+    setSignedUp(false);
     setStatus('submitting'); // also clears the old message
     const result = await login(username, password);
     if (result === 'success') {
@@ -57,7 +70,7 @@ export default function LoginPage() {
         </button>
       </form>
       <p data-testid="login-message" role="alert">
-        {MESSAGES[status]}
+        {status === 'idle' && signedUp ? SIGNED_UP_MESSAGE : MESSAGES[status]}
       </p>
     </main>
   );
