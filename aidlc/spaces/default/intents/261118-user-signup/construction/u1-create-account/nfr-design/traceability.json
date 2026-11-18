@@ -1,0 +1,18 @@
+{
+  "stage": "nfr-design",
+  "unit": "u1-create-account",
+  "upstream_ids": ["NFR7.1", "NFR4.2", "NFR1.1", "NFR1.2", "NFR2.1", "NFR3.1", "NFR1.3", "NFR4.1", "NFR5.1", "NFR6.1", "NFR5.2"],
+  "coverage": [
+    { "id": "NFR7.1", "status": "OK", "target": "no new process or service" },
+    { "id": "NFR4.2", "status": "OK", "target": "one in-memory add per request" },
+    { "id": "NFR1.1", "status": "OK", "target": "no logging of the password" },
+    { "id": "NFR1.2", "status": "OK", "target": "password-masking request record" },
+    { "id": "NFR2.1", "status": "OK", "target": "documented plain-text exception in the store" },
+    { "id": "NFR3.1", "status": "OK", "target": "second cross-origin mapping for /api/signup" },
+    { "id": "NFR1.3", "status": "OK", "target": "no cookie, token or storage; router state for the one-time message" },
+    { "id": "NFR4.1", "status": "OK", "target": "concurrent map with atomic put-if-absent" },
+    { "id": "NFR5.1", "status": "OK", "target": "status reset in a final step" },
+    { "id": "NFR6.1", "status": "OK", "target": "native elements, aria-describedby, alert region" },
+    { "id": "NFR5.2", "status": "OK", "target": "memory only, restart test" }
+  ]
+}

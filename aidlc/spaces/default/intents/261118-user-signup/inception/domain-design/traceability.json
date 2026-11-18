@@ -1,0 +1,14 @@
+{
+  "stage": "domain-design",
+  "upstream_ids": ["US1.1", "US2.1", "US2.2", "US2.3", "US2.4", "US3.1", "US3.2", "US3.3"],
+  "coverage": [
+    { "id": "US1.1", "status": "OK", "target": "App, LoginPage, SignUpPage" },
+    { "id": "US2.1", "status": "OK", "target": "SignUpPage, SignupApi, SignupController, AccountService, UserStore" },
+    { "id": "US2.2", "status": "OK", "target": "SignUpPage, SignupController, AccountService" },
+    { "id": "US2.3", "status": "OK", "target": "SignUpPage, AccountService, UserStore" },
+    { "id": "US2.4", "status": "OK", "target": "SignUpPage, SignupApi" },
+    { "id": "US3.1", "status": "OK", "target": "LoginController, AccountService, UserStore" },
+    { "id": "US3.2", "status": "OK", "target": "AccountService, DemoCredential" },
+    { "id": "US3.3", "status": "OK", "target": "SignupController, LoginController, SignUpPage" }
+  ]
+}

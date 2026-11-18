@@ -1,0 +1,1 @@
+"Add a sign-up page where a user can register with a username and password. Store registered users in an in-memory database only; do not deploy or connect any external database. Login must accept registered users as well as the existing demo user."

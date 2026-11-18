@@ -6,5 +6,13 @@
     "scope": "classic",
     "status": "complete",
     "request": "a950c30c"
+  },
+  {
+    "uuid": "01a1ee5d-9ae9-7eb1-8c2a-05cb2123e983",
+    "slug": "user-signup",
+    "dirName": "261118-user-signup",
+    "scope": "classic",
+    "status": "in-flight",
+    "request": "d7430c89"
   }
 ]
