@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "models": {
+    "schemaVersion": 1,
+    "agents": {
+      "architect": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "architecture-reviewer": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "aws-platform": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "compliance": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "composer": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "delivery": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "design": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "developer": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "devsecops": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "operations": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "pipeline-deploy": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "product": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "product-lead": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      },
+      "quality": {
+        "effort": "low",
+        "model": {
+          "claude": "claude-sonnet-5-5"
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,6 @@
 # BEGIN AI-DLC:gitignore
 # AI-DLC: local working files
 aidlc/active-space
-aidlc/.aidlc-active-space-*.tmp
-aidlc/active-memory/
 aidlc/spaces/*/intents/active-intent
 aidlc/.aidlc-clone-id
 aidlc.settings.local.json
@@ -13,8 +11,8 @@ aidlc/.aidlc-unit-participant
 aidlc/.aidlc-claim-registry.json
 aidlc/.aidlc-unit-releases/
 aidlc/.aidlc-unit-merges/
-aidlc/.aidlc-cursor-subagents/
-aidlc/.aidlc-cursor-subagent-*.json
+aidlc/.aidlc-active-space-*.tmp
+aidlc/active-memory/
 aidlc/.aidlc-sessions/
 aidlc/.aidlc-request-text/
 aidlc/spaces/*/intents/.aidlc-*
@@ -25,6 +23,9 @@ aidlc/spaces/*/knowledge/.sources.local.json
 aidlc/spaces/*/intents/*/runtime-graph.json
 aidlc/spaces/*/intents/*/.aidlc-*
 aidlc/diagnostics/
+.claude/settings.local.json
+aidlc/.aidlc-cursor-subagents/
+aidlc/.aidlc-cursor-subagent-*.json
 aidlc/.aidlc-turn-counter
 aidlc/.aidlc-readonly-latch
 # END AI-DLC:gitignore
