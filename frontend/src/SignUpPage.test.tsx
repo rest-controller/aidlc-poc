@@ -76,7 +76,8 @@ describe('sign-up flow', () => {
     renderAt('/signup');
     await fillAndSubmit('alice', 'secret-pass');
     expect(screen.getByTestId('signup-submit')).toBeDisabled();
-    resolve({ status: 409 });
+    // A 500 keeps this test about the pending state; a 409 now shows a message (see below).
+    resolve({ status: 500 });
     await waitFor(() => expect(screen.getByTestId('signup-submit')).toBeEnabled());
     expect(screen.getByTestId('signup-message')).toBeEmptyDOMElement();
   });
@@ -160,6 +161,50 @@ describe('sign-up flow', () => {
       expect(screen.getByTestId('signup-password')).toHaveValue('');
       expect(screen.getByTestId('signup-submit')).toBeEnabled();
       expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+  });
+
+  describe('409 answer for a taken username', () => {
+    const TAKEN_MSG = 'Username already taken.';
+
+    function answerTaken() {
+      vi.stubGlobal(
+        'fetch',
+        vi.fn().mockResolvedValue({
+          status: 409,
+          json: async () => ({ success: false, errors: ['USERNAME_TAKEN'] }),
+        }),
+      );
+    }
+
+    it('shows "Username already taken." and stays on /signup', async () => {
+      answerTaken();
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() => expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG));
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+
+    it('keeps the username, clears the password and re-enables the button', async () => {
+      answerTaken();
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() => expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG));
+      expect(screen.getByTestId('signup-username')).toHaveValue('alice');
+      expect(screen.getByTestId('signup-password')).toHaveValue('');
+      expect(screen.getByTestId('signup-submit')).toBeEnabled();
+    });
+
+    it('clears the taken message when the next submit starts', async () => {
+      answerTaken();
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() => expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG));
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status: 500 }));
+      const user = userEvent.setup();
+      await user.type(screen.getByTestId('signup-password'), 'secret-pass');
+      await user.click(screen.getByTestId('signup-submit'));
+      await waitFor(() => expect(screen.getByTestId('signup-message')).toBeEmptyDOMElement());
     });
   });
 

@@ -32,8 +32,9 @@ public class SignupController {
             // A failed rule answers 400 with its reason codes (contract C1, FR2.3).
             case INVALID -> ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new SignupResult(false, result.errors()));
-            // The message and reason codes for a taken name arrive in a later unit.
-            case USERNAME_TAKEN -> ResponseEntity.status(HttpStatus.CONFLICT).body(new SignupResult(false));
+            // A taken name answers 409 with USERNAME_TAKEN (contract C1, FR3.3).
+            case USERNAME_TAKEN -> ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(new SignupResult(false, result.errors()));
         };
     }
 }

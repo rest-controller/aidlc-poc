@@ -16,7 +16,7 @@ public class AccountService {
         INVALID
     }
 
-    /** Outcome plus the reason codes of a failed rule (empty unless INVALID). */
+    /** Outcome plus the reason codes of a failed rule (empty when REGISTERED). */
     public record Registration(Outcome outcome, List<String> errors) {
     }
 
@@ -28,10 +28,14 @@ public class AccountService {
     // FR2.2: at least 8 characters; spaces count and there is no maximum.
     private static final int PASSWORD_MIN = 8;
 
-    private final UserStore store;
+    static final String USERNAME_TAKEN = "USERNAME_TAKEN";
 
-    public AccountService(UserStore store) {
+    private final UserStore store;
+    private final DemoCredential demo;
+
+    public AccountService(UserStore store, DemoCredential demo) {
         this.store = store;
+        this.demo = demo;
     }
 
     /**
@@ -50,8 +54,16 @@ public class AccountService {
         if (!errors.isEmpty()) {
             return new Registration(Outcome.INVALID, List.copyOf(errors));
         }
+        // FR3.2: the demo user's name is reserved in any letter case. This is the only check made
+        // before the store; the store's atomic addIfAbsent alone decides every other taken name
+        // (FR3.1, FR5.4), so two simultaneous sign-ups cannot both succeed.
+        if (demo.isDemoUsername(username)) {
+            return new Registration(Outcome.USERNAME_TAKEN, List.of(USERNAME_TAKEN));
+        }
         RegisteredUser user = new RegisteredUser(username, UserStore.keyOf(username), password);
-        Outcome outcome = store.addIfAbsent(user) ? Outcome.REGISTERED : Outcome.USERNAME_TAKEN;
-        return new Registration(outcome, List.of());
+        if (store.addIfAbsent(user)) {
+            return new Registration(Outcome.REGISTERED, List.of());
+        }
+        return new Registration(Outcome.USERNAME_TAKEN, List.of(USERNAME_TAKEN));
     }
 }

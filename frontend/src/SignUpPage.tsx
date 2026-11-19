@@ -7,6 +7,7 @@ type Status = 'idle' | 'submitting';
 // Wording table of contract C1.
 const USERNAME_MESSAGE = 'Username must be 3-20 letters, digits, underscores or hyphens.';
 const PASSWORD_MESSAGE = 'Password must be at least 8 characters.';
+const TAKEN_MESSAGE = 'Username already taken.';
 const GENERIC_MESSAGE = 'Please check the username and password and try again.';
 
 function messageFor(errors: string[]): string {
@@ -44,7 +45,11 @@ export default function SignUpPage() {
         setMessage(messageFor(result.errors));
         setPassword('');
       }
-      // The message for a taken name (409) arrives in AP-6; the line stays empty for now.
+      if (result.kind === 'taken') {
+        // AC2.3.4: same handling as a failed rule: username kept, password cleared.
+        setMessage(TAKEN_MESSAGE);
+        setPassword('');
+      }
     } finally {
       inFlight.current = false;
       setStatus('idle');

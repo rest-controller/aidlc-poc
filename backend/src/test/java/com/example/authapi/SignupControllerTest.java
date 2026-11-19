@@ -114,6 +114,40 @@ class SignupControllerTest {
                 .andExpect(jsonPath("$.errors").doesNotExist());
     }
 
+    private static final String TAKEN = "{\"success\":false,\"errors\":[\"USERNAME_TAKEN\"]}";
+
+    @Test
+    void repeatNameInAnotherCaseReturns409AndFirstPasswordIsUnchanged() throws Exception {
+        signup("{\"username\":\"Taken1\",\"password\":\"pw-first-1234\"}");
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"TAKEN1\",\"password\":\"pw-second-5678\"}"))
+                .andExpect(status().isConflict())
+                .andExpect(content().json(TAKEN, true));
+        RegisteredUser stored = store.findByKey("taken1");
+        assertEquals("pw-first-1234", stored.password());
+        assertEquals("Taken1", stored.username());
+    }
+
+    @Test
+    void demoUsernameInAnyCaseReturns409() throws Exception {
+        for (String name : new String[] {"demouser", "DemoUser", "DEMOUSER"}) {
+            mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                            .content("{\"username\":\"" + name + "\",\"password\":\"pw-test-1234\"}"))
+                    .andExpect(status().isConflict())
+                    .andExpect(content().json(TAKEN, true));
+        }
+        assertNull(store.findByKey("demouser"));
+    }
+
+    @Test
+    void invalidUsernameAnswers400NotTaken() throws Exception {
+        signup("{\"username\":\"Taken2\",\"password\":\"pw-first-1234\"}");
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"ta\",\"password\":\"pw-test-1234\"}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().json("{\"success\":false,\"errors\":[\"USERNAME_INVALID\"]}", true));
+    }
+
     @Test
     void malformedJsonReturns400() throws Exception {
         mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON).content("not json"))
