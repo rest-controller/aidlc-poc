@@ -9461,3 +9461,603 @@
 **Review Finding Dispositions**: {"version":1,"dispositions":[{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-plan.md","id":"R-01","fingerprint":"sha256:d030394b5b3fcbceb94fe84f369b31b84a7976790b274641742136c7be213e57","status":"Changed after review","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u5-login-registered/4dbc1c56b76452e6/1.json","digest":"sha256:ca5784ff6ba09da6264000e834ed2b6b19a2922f90bfd37146a6b6eb3c7b772c"}},{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-plan.md","id":"R-02","fingerprint":"sha256:230f88fa1c621e1ef613692f4240e7879bac08fba1970e495c2f7ff92c617d76","status":"Changed after review","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u5-login-registered/4dbc1c56b76452e6/1.json","digest":"sha256:ca5784ff6ba09da6264000e834ed2b6b19a2922f90bfd37146a6b6eb3c7b772c"}}]}
 
 ---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T08:41:42Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: a3d8e045fc92bbbd2
+**Message**: yes
+
+---
+
+## Session Compacted
+**Timestamp**: 2026-11-19T09:35:23Z
+**Event**: SESSION_COMPACTED
+**Current Stage**: functional-design
+**State Validity**: valid
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T09:36:04Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: a131619aecab8d081
+**Message**: <analysis>\nChronology since the earlier summary:\n\n1. Resumed at the unit-order conflict: the engine walks u4 (AP-7) before u5 (AP-8). I deleted the empty AP-8 branch, branched AP-7-signup-unreachable 
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T12:20:18Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: typed
+**Message Id**: c2b283e1
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-questions.md","entries":{"Plan Approval":"d12e55ef62cf7b9d"}}
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T12:21:54Z
+**Event**: UNIT_SKIPPED
+**Stage**: functional-design
+**Unit**: u6-demo-user-regression
+**Reason**: Skip design steps by agreement; AP-9 only adds regression tests for existing demo-user behavior (FR6.2, FR7.2).
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T12:22:39Z
+**Event**: UNIT_SKIPPED
+**Stage**: nfr-requirements
+**Unit**: u6-demo-user-regression
+**Reason**: Skip design steps by agreement; regression tests only, no new quality targets.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T12:23:27Z
+**Event**: UNIT_SKIPPED
+**Stage**: nfr-design
+**Unit**: u6-demo-user-regression
+**Reason**: Skip design steps by agreement; regression tests only.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T12:24:22Z
+**Event**: UNIT_SKIPPED
+**Stage**: infrastructure-design
+**Unit**: u6-demo-user-regression
+**Reason**: Skip design steps by agreement; no infrastructure for this POC, regression tests only.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T12:25:42Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md
+**Context**: construction > u6-demo-user-regression > code-generation > code-generation-plan.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T12:25:50Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/unit-test-instructions.md
+**Context**: construction > u6-demo-user-regression > code-generation > unit-test-instructions.md
+
+---
+
+## Question Asked
+**Timestamp**: 2026-11-19T12:26:13Z
+**Event**: QUESTION_ASKED
+**Question Id**: 941f8fff
+**Question Type**: plan-approval
+**Question Chat**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question Shows**: sha256:f94d66b526bc54af2bf5ef7dcfc9fb72cbb952e4c269b4b5107bead936452988
+**Stage**: code-generation
+**Unit**: u6-demo-user-regression
+**Ask Id**: 3d26be258db432bfe38603787f00ca5d
+**Options**: ["Approve Plan","Request Changes","I'll edit the files"]
+**Question Text SHA-256**: 4370beef869c833c9055520236a40381179db4e8d354f42f1c36aba1ddad2998
+**Questions File**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-questions.md
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T12:26:32Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: picker
+**Picked**: ["Approve Plan"]
+**Message Id**: a226ceb1
+**Open Questions**: 941f8fff
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-questions.md","entries":{"Plan Approval":"42323a23c1d1a565"}}
+
+---
+
+## Plan Approval Recorded
+**Timestamp**: 2026-11-19T12:26:33Z
+**Event**: PLAN_APPROVAL_RECORDED
+**Stage**: code-generation
+**Details**: Approve Plan
+**Checkpoint**: plan-approval
+**Plan Target**: unit:u6-demo-user-regression
+**Intent**: 01a1ee5d-9ae9-7eb1-8c2a-05cb2123e983
+**Directive Epoch**: sha256:97b3d273b7471305b381a084268baf6363215378591a6abf791e78f3e16e4d8f
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+**Approval Fingerprint**: sha256:v3:0fcd484cdad75f3be6d41ddc1b492087fce8c7207592fa0fa35d90131ce30f8a
+**Questions File**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-questions.md
+**Questions SHA-256**: 663ddc608efa808082b58d3239f37c3ef21b02b3a183c392bfad3ac2e775a297
+**Prompt SHA-256**: 440bd84179356a8fb22407b1c210c74718b4d3d8c32097981ebe1ff34bcbe8c9
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Asked By**: engine
+**Person Reply**: Approve Plan
+**Message Id**: a226ceb1
+**Unit**: u6-demo-user-regression
+
+---
+
+## Question Replied
+**Timestamp**: 2026-11-19T12:26:34Z
+**Event**: QUESTION_REPLIED
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question**: Approve the code plan for AP-9 (u6-demo-user-regression)? It adds regression tests only: about 3 backend tests (demo login still 200, other letter case still 401, demo name can't be registered) and 1 frontend test. No production code changes expected.
+**Reply**: Approve Plan
+**Options**: ["Approve Plan","Request Changes","I'll edit the files"]
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:27:54Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-developer-agent
+
+---
+
+## Guard Stood Aside
+**Timestamp**: 2026-11-19T12:27:56Z
+**Event**: GUARD_STOOD_ASIDE
+**Guard**: plan-approval
+**Authority**: instruction
+**Grant**: none
+**Actor**: subagent
+**Stage**: code-generation
+**Tool**: Agent
+**Details**: dispatch of aidlc-developer-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:28:08Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-developer-agent
+
+---
+
+## Guard Stood Aside
+**Timestamp**: 2026-11-19T12:28:10Z
+**Event**: GUARD_STOOD_ASIDE
+**Guard**: plan-approval
+**Authority**: instruction
+**Grant**: none
+**Actor**: subagent
+**Stage**: code-generation
+**Tool**: Agent
+**Details**: dispatch of aidlc-developer-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:28:22Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-developer-agent
+
+---
+
+## Guard Stood Aside
+**Timestamp**: 2026-11-19T12:28:24Z
+**Event**: GUARD_STOOD_ASIDE
+**Guard**: plan-approval
+**Authority**: instruction
+**Grant**: none
+**Actor**: subagent
+**Stage**: code-generation
+**Tool**: Agent
+**Details**: dispatch of aidlc-developer-agent
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T12:29:09Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: ac5cb2230e1141443
+**Message**: (silence)
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T12:33:37Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-summary.md
+**Context**: construction > u6-demo-user-regression > code-generation > code-summary.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T12:33:48Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/traceability.json
+**Context**: construction > u6-demo-user-regression > code-generation > traceability.json
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T12:33:54Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/source-manifest.json
+**Context**: construction > u6-demo-user-regression > code-generation > source-manifest.json
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-19T12:34:06Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Edit
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-summary.md
+**Context**: construction > u6-demo-user-regression > code-generation > code-summary.md
+
+---
+
+## Host Turn
+**Timestamp**: 2026-11-19T12:34:24Z
+**Event**: HOST_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: host
+**Reason**: claude agent message
+**Source**: template
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T12:34:25Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-developer-agent
+**Agent ID**: a82d98939d2aab286
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T12:35:03Z
+**Event**: SENSOR_FIRED
+**Fire id**: cf283384
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T12:35:04Z
+**Event**: SENSOR_PASSED
+**Fire id**: cf283384
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md
+**Duration ms**: 938
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T12:35:05Z
+**Event**: SENSOR_FIRED
+**Fire id**: 93172657
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/unit-test-instructions.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T12:35:06Z
+**Event**: SENSOR_PASSED
+**Fire id**: 93172657
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/unit-test-instructions.md
+**Duration ms**: 926
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T12:35:07Z
+**Event**: SENSOR_FIRED
+**Fire id**: 3aa3fee8
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-summary.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T12:35:08Z
+**Event**: SENSOR_PASSED
+**Fire id**: 3aa3fee8
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-summary.md
+**Duration ms**: 950
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T12:35:10Z
+**Event**: SENSOR_FIRED
+**Fire id**: 9b31d21e
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T12:35:11Z
+**Event**: SENSOR_PASSED
+**Fire id**: 9b31d21e
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/traceability.json
+**Duration ms**: 1010
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T12:35:12Z
+**Event**: SENSOR_FIRED
+**Fire id**: f3b36310
+**Sensor ID**: traceability
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T12:35:13Z
+**Event**: SENSOR_PASSED
+**Fire id**: f3b36310
+**Sensor ID**: traceability
+**Stage slug**: code-generation
+**Unit**: u6-demo-user-regression
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/traceability.json
+**Duration ms**: 1136
+
+---
+
+## Change Accepted
+**Timestamp**: 2026-11-19T12:35:15Z
+**Event**: CHANGE_ACCEPTED
+**Stage**: code-generation
+**Unit**: u5-login-registered
+**Checkpoint**: review-receipt
+**Changed**: backend/src/test/java/com/example/authapi/LoginControllerTest.java
+**Recorded**: sha256:9b7705d3f308290d427c58902e4f30b2ada2493c949d54c192937b95fb3d2036
+**Current**: sha256:6ffb5d2dd8f1984fd521a13e7663e998af2782fcce5bceb2963970b086d33fd9
+**Details**: backend/src/test/java/com/example/authapi/LoginControllerTest.java changed after the login registered Unit was reviewed; carrying on.
+
+---
+
+## Review Requested
+**Timestamp**: 2026-11-19T12:35:16Z
+**Event**: REVIEW_REQUESTED
+**Stage**: code-generation
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Unit**: u6-demo-user-regression
+**Iteration**: 1
+**Artifact Fingerprint**: sha256:fae9e55021c295eb4a9de795fd270df0a80a338051a41c3b54a3d87d9bd915ee
+**Request Id**: review:806e23db48350d13d4c46ff4271cdc56
+**Source Fingerprint**: 39630551c2ddb1b6a4c16ecc14799623f01ccb410cfff843dd656ab615e2da9c
+**Unit Source Fingerprint**: sha256:8ae6ae134df7880372dc701f0f3d97a9672fec180ed9347f9f6955a183437f9c
+**Review File**: .aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.806e23db48350d13d4c46ff4271cdc56.review.md
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:35:29Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:35:39Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:35:48Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T12:36:36Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: a23d524b60087b0b7
+**Message**: continue
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T12:37:02Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/.aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.806e23db48350d13d4c46ff4271cdc56.review.md
+**Context**: .aidlc-engine > reviews > code-generation > units > u6-demo-user-regression > 4dbc1c56b76452e6 > 1.806e23db48350d13d4c46ff4271cdc56.review.md
+
+---
+
+## Host Turn
+**Timestamp**: 2026-11-19T12:37:09Z
+**Event**: HOST_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: host
+**Reason**: claude agent message
+**Source**: template
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T12:37:10Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-architecture-reviewer-agent
+**Agent ID**: a9f2c03cd42570a62
+**Review File Digest**: .aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.806e23db48350d13d4c46ff4271cdc56.review.md=b976513b1bf36afa4bf5daa8ffe3d47b1548579cdf277bb89407de9c51e9e1de
+
+---
+
+## Review Completed
+**Timestamp**: 2026-11-19T12:37:23Z
+**Event**: REVIEW_COMPLETED
+**Stage**: code-generation
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Unit**: u6-demo-user-regression
+**Iteration**: 1
+**Verdict**: READY
+**Review Verdict Dictated**: no
+**Request Fingerprint**: sha256:fae9e55021c295eb4a9de795fd270df0a80a338051a41c3b54a3d87d9bd915ee
+**Artifact Fingerprint**: sha256:fae9e55021c295eb4a9de795fd270df0a80a338051a41c3b54a3d87d9bd915ee
+**Request Id**: review:806e23db48350d13d4c46ff4271cdc56
+**Request Source Fingerprint**: 39630551c2ddb1b6a4c16ecc14799623f01ccb410cfff843dd656ab615e2da9c
+**Source Fingerprint**: 39630551c2ddb1b6a4c16ecc14799623f01ccb410cfff843dd656ab615e2da9c
+**Source Listing**: sha256:1108d72c1f0177aa5af23ffc22684794c1df9f0985dd61108b82aee4ca06306f
+**Unit Source Fingerprint**: sha256:8ae6ae134df7880372dc701f0f3d97a9672fec180ed9347f9f6955a183437f9c
+**Review Record**: .aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.json
+**Review Record Digest**: sha256:b9c752305e61d37e60718573887229a6e44ecbfc8456c351c0ab0cb48f8cd345
+**Testing Contract**: sha256:ee88ed1d0315ef15b8bb8a269bbc6cc4fa7e2c33d79c60667ba4866a7eaf7f90
+
+---
+
+## Unit Started
+**Timestamp**: 2026-11-19T12:38:18Z
+**Event**: UNIT_STARTED
+**Stage**: code-generation
+**Unit**: u6-demo-user-regression
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Completed
+**Timestamp**: 2026-11-19T12:38:34Z
+**Event**: UNIT_COMPLETED
+**Stage**: code-generation
+**Unit**: u6-demo-user-regression
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Checkpoint Verification Recorded
+**Timestamp**: 2026-11-19T12:40:22Z
+**Event**: CHECKPOINT_VERIFICATION_RECORDED
+**Unit**: u6-demo-user-regression
+**Kind**: unit
+**Stage**: code-generation
+**Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Verification Id**: 7df1f6ed-50b3-433d-a419-4c5b5e9ff830
+**Fingerprint**: sha256:e38616accb71a98a4749171b7eeca36ce61bb5d85037760d6a919ddc0415220f
+**Command SHA-256**: 62aa1e210627ea9b453c4ecc17a46647eb7b57735fde6ec9566ea66fcf0d5a1a
+**Exit Code**: 0
+**Verified**: true
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T12:42:56Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: picker
+**Picked**: ["Approve"]
+**Message Id**: 8904cd28
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-questions.md","entries":{"Plan Approval":"42323a23c1d1a565"}}
+
+---
+
+## Question Replied
+**Timestamp**: 2026-11-19T12:42:56Z
+**Event**: QUESTION_REPLIED
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question**: AP-9 (tests only, no production change) is built and verified: the full backend and frontend suites pass (71 backend tests, 29 frontend tests) and the reviewer said READY. Approve it so I can commit, push and open the PR?
+**Reply**: Approve
+**Options**: ["Approve","Request Changes"]
+
+---
+
+## Decision Recorded
+**Timestamp**: 2026-11-19T12:43:15Z
+**Event**: DECISION_RECORDED
+**Checkpoint**: Construction Unit Approval
+**Unit**: u6-demo-user-regression
+**Kind**: unit
+**Stage**: code-generation
+**Fingerprint**: sha256:e38616accb71a98a4749171b7eeca36ce61bb5d85037760d6a919ddc0415220f
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Options**: Approve,Request Changes
+**Asked Evidence**: {"code-generation":["sha256:fae9e55021c295eb4a9de795fd270df0a80a338051a41c3b54a3d87d9bd915ee","sha256:8ae6ae134df7880372dc701f0f3d97a9672fec180ed9347f9f6955a183437f9c",{"\u0000backend/src/test/java/com/example/authapi/LoginControllerTest.java":"100644 5164594957f0d0c5433adfde787b357caadf80de50ee4c7b9c912f050de61ace","\u0000frontend/src/App.test.tsx":"100644 494cf338ebabf0f4ccd32d0c72bc0cda628dc0933fc563903c311999ffb9f7a3"}]}
+**Run floors**: {"functional-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-requirements":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","infrastructure-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","code-generation":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1"}
+**Question Id**: ddffc83d
+**Question Type**: unit-checkpoint
+**Question Chat**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question Shows**: sha256:ee9a65dced5bd485abde6962ebb75b3ea05fc23a537aafcbc580b84a4e9690e5
+
+---
+
+## Gate Approved
+**Timestamp**: 2026-11-19T12:43:38Z
+**Event**: GATE_APPROVED
+**Unit**: u6-demo-user-regression
+**Stage**: code-generation
+**Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Gate Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Gate Scope**: unit-end
+**Checkpoint**: construction-unit
+**Fingerprint**: sha256:e38616accb71a98a4749171b7eeca36ce61bb5d85037760d6a919ddc0415220f
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+**Run floors**: {"functional-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-requirements":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","infrastructure-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","code-generation":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1"}
+**Verification Command SHA-256**: 62aa1e210627ea9b453c4ecc17a46647eb7b57735fde6ec9566ea66fcf0d5a1a
+**Verification Id**: 7df1f6ed-50b3-433d-a419-4c5b5e9ff830
+**Approved Evidence**: {"code-generation":["sha256:fae9e55021c295eb4a9de795fd270df0a80a338051a41c3b54a3d87d9bd915ee","sha256:8ae6ae134df7880372dc701f0f3d97a9672fec180ed9347f9f6955a183437f9c",{"\u0000backend/src/test/java/com/example/authapi/LoginControllerTest.java":"100644 5164594957f0d0c5433adfde787b357caadf80de50ee4c7b9c912f050de61ace","\u0000frontend/src/App.test.tsx":"100644 494cf338ebabf0f4ccd32d0c72bc0cda628dc0933fc563903c311999ffb9f7a3"}]}
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**User Input**: Approve
+**Person Reply**: Approve
+**Message Id**: 8904cd28
+**Review Finding Dispositions**: {"version":1,"dispositions":[{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md","id":"R-01","fingerprint":"sha256:cb2025d079c36ecc5f146526c7a15747e7e7c4c45d771ae7fede06f51c3c3e52","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.json","digest":"sha256:b9c752305e61d37e60718573887229a6e44ecbfc8456c351c0ab0cb48f8cd345"}},{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md","id":"R-02","fingerprint":"sha256:9a5b8ad27c1de6de4c4c325b16b37e3ed47b776dc763c8a1a59977a3c38f8629","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.json","digest":"sha256:b9c752305e61d37e60718573887229a6e44ecbfc8456c351c0ab0cb48f8cd345"}},{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md","id":"R-03","fingerprint":"sha256:bd2ef99a9e6f26c570cda4371f79ebda1f292443d9181e0a8d1c88ed759e17e4","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.json","digest":"sha256:b9c752305e61d37e60718573887229a6e44ecbfc8456c351c0ab0cb48f8cd345"}}]}
+
+---
