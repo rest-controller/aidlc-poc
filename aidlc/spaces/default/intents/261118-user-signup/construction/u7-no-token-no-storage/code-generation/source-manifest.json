@@ -1,0 +1,11 @@
+{
+  "stage": "code-generation",
+  "unit": "u7-no-token-no-storage",
+  "version": 1,
+  "writes": [
+    { "path": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "path": "backend/src/test/java/com/example/authapi/RequestPrintingTest.java" },
+    { "path": "backend/src/test/java/com/example/authapi/ConsoleOutputTest.java" },
+    { "path": "frontend/src/App.test.tsx" }
+  ]
+}

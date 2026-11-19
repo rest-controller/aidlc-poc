@@ -10061,3 +10061,618 @@
 **Review Finding Dispositions**: {"version":1,"dispositions":[{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md","id":"R-01","fingerprint":"sha256:cb2025d079c36ecc5f146526c7a15747e7e7c4c45d771ae7fede06f51c3c3e52","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.json","digest":"sha256:b9c752305e61d37e60718573887229a6e44ecbfc8456c351c0ab0cb48f8cd345"}},{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md","id":"R-02","fingerprint":"sha256:9a5b8ad27c1de6de4c4c325b16b37e3ed47b776dc763c8a1a59977a3c38f8629","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.json","digest":"sha256:b9c752305e61d37e60718573887229a6e44ecbfc8456c351c0ab0cb48f8cd345"}},{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u6-demo-user-regression/code-generation/code-generation-plan.md","id":"R-03","fingerprint":"sha256:bd2ef99a9e6f26c570cda4371f79ebda1f292443d9181e0a8d1c88ed759e17e4","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u6-demo-user-regression/4dbc1c56b76452e6/1.json","digest":"sha256:b9c752305e61d37e60718573887229a6e44ecbfc8456c351c0ab0cb48f8cd345"}}]}
 
 ---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T12:45:44Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: a4ce618933f928865
+**Message**: yes
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T12:50:54Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: typed
+**Message Id**: 0d32e270
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T12:52:02Z
+**Event**: UNIT_SKIPPED
+**Stage**: functional-design
+**Unit**: u7-no-token-no-storage
+**Reason**: Skip design steps by agreement; AP-10 only adds tests (and any small fix a test reveals) for no token, no storage, no password in logs.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T12:52:55Z
+**Event**: UNIT_SKIPPED
+**Stage**: nfr-requirements
+**Unit**: u7-no-token-no-storage
+**Reason**: Skip design steps by agreement; tests-focused unit, no new quality targets.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T12:53:46Z
+**Event**: UNIT_SKIPPED
+**Stage**: nfr-design
+**Unit**: u7-no-token-no-storage
+**Reason**: Skip design steps by agreement; tests-focused unit.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T12:54:34Z
+**Event**: UNIT_SKIPPED
+**Stage**: infrastructure-design
+**Unit**: u7-no-token-no-storage
+**Reason**: Skip design steps by agreement; no infrastructure for this POC.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T12:55:31Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-generation-plan.md
+**Context**: construction > u7-no-token-no-storage > code-generation > code-generation-plan.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T12:55:39Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/unit-test-instructions.md
+**Context**: construction > u7-no-token-no-storage > code-generation > unit-test-instructions.md
+
+---
+
+## Question Asked
+**Timestamp**: 2026-11-19T12:55:59Z
+**Event**: QUESTION_ASKED
+**Question Id**: 4bd4f87b
+**Question Type**: plan-approval
+**Question Chat**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question Shows**: sha256:f4b4ece47d5058a89b3dea6e6d72de88209803d92a6d7506280af0e202eaef1d
+**Stage**: code-generation
+**Unit**: u7-no-token-no-storage
+**Ask Id**: 63b527184dbea80dcc379d9915cb09e2
+**Options**: ["Approve Plan","Request Changes","I'll edit the files"]
+**Question Text SHA-256**: 8acd4841ca2898726646e04448444fbe55587d71503a3631474a654047def5ae
+**Questions File**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-generation-questions.md
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T12:57:41Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: picker
+**Picked**: ["Approve Plan"]
+**Message Id**: bad16be6
+**Open Questions**: 4bd4f87b
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-generation-questions.md","entries":{"Plan Approval":"912600a096c1ea6f"}}
+
+---
+
+## Plan Approval Recorded
+**Timestamp**: 2026-11-19T12:57:42Z
+**Event**: PLAN_APPROVAL_RECORDED
+**Stage**: code-generation
+**Details**: Approve Plan
+**Checkpoint**: plan-approval
+**Plan Target**: unit:u7-no-token-no-storage
+**Intent**: 01a1ee5d-9ae9-7eb1-8c2a-05cb2123e983
+**Directive Epoch**: sha256:b31189b6ee478e000b4b89dcc132ef116a61918e38cf770b3bef56c22ac0cf0f
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+**Approval Fingerprint**: sha256:v3:cf34386e2fd8f66d48bc5d3fc31cbc7239833341096b9f65a869f510e1aabe69
+**Questions File**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-generation-questions.md
+**Questions SHA-256**: 63a70243c2c61bb17620e33d84266e92d25b8b501114b6d61d860711b82c4f53
+**Prompt SHA-256**: 22e37bc150023e37bbfcd3118a1c03023b303b7c0eee9ff6c6669ceb4da58d42
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Asked By**: engine
+**Person Reply**: Approve Plan
+**Message Id**: bad16be6
+**Unit**: u7-no-token-no-storage
+
+---
+
+## Question Replied
+**Timestamp**: 2026-11-19T12:57:42Z
+**Event**: QUESTION_REPLIED
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question**: Approve the code plan for AP-10 (u7-no-token-no-storage)? It adds tests only (about 4 backend, 1 frontend) proving sign-up and login issue no cookie or token, store nothing in the browser, keep the password out of logs and printed text, and keep the done page plain. No production change expected; a fix only if a test finds a gap.
+**Reply**: Approve Plan
+**Options**: ["Approve Plan","Request Changes","I'll edit the files"]
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:59:04Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-developer-agent
+
+---
+
+## Guard Stood Aside
+**Timestamp**: 2026-11-19T12:59:06Z
+**Event**: GUARD_STOOD_ASIDE
+**Guard**: plan-approval
+**Authority**: instruction
+**Grant**: none
+**Actor**: subagent
+**Stage**: code-generation
+**Tool**: Agent
+**Details**: dispatch of aidlc-developer-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:59:18Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-developer-agent
+
+---
+
+## Guard Stood Aside
+**Timestamp**: 2026-11-19T12:59:19Z
+**Event**: GUARD_STOOD_ASIDE
+**Guard**: plan-approval
+**Authority**: instruction
+**Grant**: none
+**Actor**: subagent
+**Stage**: code-generation
+**Tool**: Agent
+**Details**: dispatch of aidlc-developer-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T12:59:30Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-developer-agent
+
+---
+
+## Guard Stood Aside
+**Timestamp**: 2026-11-19T12:59:32Z
+**Event**: GUARD_STOOD_ASIDE
+**Guard**: plan-approval
+**Authority**: instruction
+**Grant**: none
+**Actor**: subagent
+**Stage**: code-generation
+**Tool**: Agent
+**Details**: dispatch of aidlc-developer-agent
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T13:21:43Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: a110b8162fe64f4cd
+**Message**: yes
+
+---
+
+## Host Turn
+**Timestamp**: 2026-11-19T13:25:44Z
+**Event**: HOST_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: host
+**Reason**: claude agent message
+**Source**: template
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T13:25:45Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-developer-agent
+**Agent ID**: aa3029403a4d7fc09
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T13:26:07Z
+**Event**: SENSOR_FIRED
+**Fire id**: e5068534
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-generation-plan.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T13:26:08Z
+**Event**: SENSOR_PASSED
+**Fire id**: e5068534
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-generation-plan.md
+**Duration ms**: 1016
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T13:26:10Z
+**Event**: SENSOR_FIRED
+**Fire id**: 4b54e128
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/unit-test-instructions.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T13:26:11Z
+**Event**: SENSOR_PASSED
+**Fire id**: 4b54e128
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/unit-test-instructions.md
+**Duration ms**: 1119
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T13:26:12Z
+**Event**: SENSOR_FIRED
+**Fire id**: fde22273
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-summary.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T13:26:13Z
+**Event**: SENSOR_PASSED
+**Fire id**: fde22273
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-summary.md
+**Duration ms**: 980
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T13:26:14Z
+**Event**: SENSOR_FIRED
+**Fire id**: ed8ad30e
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T13:26:15Z
+**Event**: SENSOR_PASSED
+**Fire id**: ed8ad30e
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/traceability.json
+**Duration ms**: 1017
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T13:26:16Z
+**Event**: SENSOR_FIRED
+**Fire id**: 8945635f
+**Sensor ID**: traceability
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T13:26:18Z
+**Event**: SENSOR_PASSED
+**Fire id**: 8945635f
+**Sensor ID**: traceability
+**Stage slug**: code-generation
+**Unit**: u7-no-token-no-storage
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/traceability.json
+**Duration ms**: 1160
+
+---
+
+## Change Accepted
+**Timestamp**: 2026-11-19T13:26:20Z
+**Event**: CHANGE_ACCEPTED
+**Stage**: code-generation
+**Unit**: u6-demo-user-regression
+**Checkpoint**: review-receipt
+**Changed**: frontend/src/App.test.tsx
+**Recorded**: sha256:8ae6ae134df7880372dc701f0f3d97a9672fec180ed9347f9f6955a183437f9c
+**Current**: sha256:942348febc153b5f7a05c9317350a8dc58be6dcd06918bc3a31328c427a88931
+**Details**: frontend/src/App.test.tsx changed after the demo user regression Unit was reviewed; carrying on.
+
+---
+
+## Review Requested
+**Timestamp**: 2026-11-19T13:26:21Z
+**Event**: REVIEW_REQUESTED
+**Stage**: code-generation
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Unit**: u7-no-token-no-storage
+**Iteration**: 1
+**Artifact Fingerprint**: sha256:e4894a9b4eb43ca1a2de4721cbc61bba4b4730505667cf0f0ba49a584dddacf7
+**Request Id**: review:030aac211320fb061eab0af48d57e332
+**Source Fingerprint**: 91cce9237ab5c0878a770971ab804d6ca199584c7bd0aa294abc670ae8f5599c
+**Unit Source Fingerprint**: sha256:994d6649db0b119dab753f00055edcffaf96c9bcb388cc358b33143210b352eb
+**Review File**: .aidlc-engine/reviews/code-generation/units/u7-no-token-no-storage/4dbc1c56b76452e6/1.030aac211320fb061eab0af48d57e332.review.md
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T13:27:56Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T13:28:06Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T13:28:16Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T13:29:02Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: aeeb5a491f94ffc2c
+**Message**: yes
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T13:29:23Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/.aidlc-engine/reviews/code-generation/units/u7-no-token-no-storage/4dbc1c56b76452e6/1.030aac211320fb061eab0af48d57e332.review.md
+**Context**: .aidlc-engine > reviews > code-generation > units > u7-no-token-no-storage > 4dbc1c56b76452e6 > 1.030aac211320fb061eab0af48d57e332.review.md
+
+---
+
+## Host Turn
+**Timestamp**: 2026-11-19T13:29:35Z
+**Event**: HOST_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: host
+**Reason**: claude agent message
+**Source**: template
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T13:29:37Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-architecture-reviewer-agent
+**Agent ID**: a935aa68b3c27a8b1
+**Review File Digest**: .aidlc-engine/reviews/code-generation/units/u7-no-token-no-storage/4dbc1c56b76452e6/1.030aac211320fb061eab0af48d57e332.review.md=0ccc6598f891ca84edbfcb6cdf90ef27bbd5de3432ed8265821a6d47fd6e0c88
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-19T13:29:58Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Edit
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-summary.md
+**Context**: construction > u7-no-token-no-storage > code-generation > code-summary.md
+
+---
+
+## Error Logged
+**Timestamp**: 2026-11-19T13:30:09Z
+**Event**: ERROR_LOGGED
+**Tool**: aidlc-log
+**Command**: aidlc-log engine log review --stage code-generation --reviewer aidlc-architecture-reviewer-agent --unit u7-no-token-no-storage --iteration 1 --verdict READY --project-dir <project-dir>
+**Error**: Refusing REVIEW_COMPLETED for "code-generation": the review must contain exactly one Iteration line.
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-19T13:30:40Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Edit
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/.aidlc-engine/reviews/code-generation/units/u7-no-token-no-storage/4dbc1c56b76452e6/1.030aac211320fb061eab0af48d57e332.review.md
+**Context**: .aidlc-engine > reviews > code-generation > units > u7-no-token-no-storage > 4dbc1c56b76452e6 > 1.030aac211320fb061eab0af48d57e332.review.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T13:30:48Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-architecture-reviewer-agent
+**Agent ID**: a935aa68b3c27a8b1
+**Review File Digest**: .aidlc-engine/reviews/code-generation/units/u7-no-token-no-storage/4dbc1c56b76452e6/1.030aac211320fb061eab0af48d57e332.review.md=ab7a86c77cfc371ce34a841d9e73d71b76774a52d375e277b7b2aaf1ba5e4da6
+
+---
+
+## Host Turn
+**Timestamp**: 2026-11-19T13:31:01Z
+**Event**: HOST_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: host
+**Reason**: claude agent message
+**Source**: template
+
+---
+
+## Review Completed
+**Timestamp**: 2026-11-19T13:31:14Z
+**Event**: REVIEW_COMPLETED
+**Stage**: code-generation
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Unit**: u7-no-token-no-storage
+**Iteration**: 1
+**Verdict**: READY
+**Request Fingerprint**: sha256:e4894a9b4eb43ca1a2de4721cbc61bba4b4730505667cf0f0ba49a584dddacf7
+**Artifact Fingerprint**: sha256:e4894a9b4eb43ca1a2de4721cbc61bba4b4730505667cf0f0ba49a584dddacf7
+**Request Id**: review:030aac211320fb061eab0af48d57e332
+**Request Source Fingerprint**: 91cce9237ab5c0878a770971ab804d6ca199584c7bd0aa294abc670ae8f5599c
+**Source Fingerprint**: 91cce9237ab5c0878a770971ab804d6ca199584c7bd0aa294abc670ae8f5599c
+**Unit Source Fingerprint**: sha256:994d6649db0b119dab753f00055edcffaf96c9bcb388cc358b33143210b352eb
+**Review Record**: .aidlc-engine/reviews/code-generation/units/u7-no-token-no-storage/4dbc1c56b76452e6/1.json
+**Review Record Digest**: sha256:a5adde2e21f5d5bf3b396c2c05385b3fb5da60cbbc766479e9fd5d46fb260c52
+**Testing Contract**: sha256:ee88ed1d0315ef15b8bb8a269bbc6cc4fa7e2c33d79c60667ba4866a7eaf7f90
+
+---
+
+## Unit Started
+**Timestamp**: 2026-11-19T13:32:13Z
+**Event**: UNIT_STARTED
+**Stage**: code-generation
+**Unit**: u7-no-token-no-storage
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Completed
+**Timestamp**: 2026-11-19T13:32:32Z
+**Event**: UNIT_COMPLETED
+**Stage**: code-generation
+**Unit**: u7-no-token-no-storage
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Change Accepted
+**Timestamp**: 2026-11-19T13:33:29Z
+**Event**: CHANGE_ACCEPTED
+**Stage**: code-generation
+**Unit**: u7-no-token-no-storage
+**Checkpoint**: review-receipt
+**Changed**: (paths unavailable)
+**Recorded**: sha256:e4894a9b4eb43ca1a2de4721cbc61bba4b4730505667cf0f0ba49a584dddacf7
+**Current**: sha256:c58aad7776cb9697a443583bddb304b11eadb453fcdaf3311486a164a615ffd3
+**Details**: The no token no storage Unit's Code Generation documents changed after they were reviewed; carrying on.
+
+---
+
+## Change Accepted
+**Timestamp**: 2026-11-19T13:33:29Z
+**Event**: CHANGE_ACCEPTED
+**Stage**: code-generation
+**Unit**: u7-no-token-no-storage
+**Checkpoint**: review-receipt
+**Changed**: backend/src/test/java/com/example/authapi/LoginControllerTest.java
+**Recorded**: sha256:994d6649db0b119dab753f00055edcffaf96c9bcb388cc358b33143210b352eb
+**Current**: sha256:c3969c25a9b976e2ba15638b49eacbabfa7f796bbfbfb8662ffeef3daeeba21a
+**Details**: backend/src/test/java/com/example/authapi/LoginControllerTest.java changed after the no token no storage Unit was reviewed; carrying on.
+
+---
+
+## Checkpoint Verification Recorded
+**Timestamp**: 2026-11-19T13:33:58Z
+**Event**: CHECKPOINT_VERIFICATION_RECORDED
+**Unit**: u7-no-token-no-storage
+**Kind**: unit
+**Stage**: code-generation
+**Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Verification Id**: eb8655c4-8381-49c7-83e6-d6ed12e1a1b1
+**Fingerprint**: sha256:a4665610f5ef1799eed0228025d47439d88e6ec7b99744f932d80dd1b7b58e53
+**Command SHA-256**: 62aa1e210627ea9b453c4ecc17a46647eb7b57735fde6ec9566ea66fcf0d5a1a
+**Exit Code**: 0
+**Verified**: true
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T13:34:19Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: picker
+**Picked**: ["Approve"]
+**Message Id**: ad0c421d
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261118-user-signup/construction/u7-no-token-no-storage/code-generation/code-generation-questions.md","entries":{"Plan Approval":"912600a096c1ea6f"}}
+
+---
+
+## Question Replied
+**Timestamp**: 2026-11-19T13:34:20Z
+**Event**: QUESTION_REPLIED
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question**: AP-10 (tests only, no production change) is built and verified: the full backend and frontend suites pass (75 backend tests, 30 frontend tests) and the reviewer said READY. Note: the builder's report claimed one LoginControllerTest test that was missing from the file, so I added it myself and re-ran the tests. Approve it so I can commit, push and open the PR?
+**Reply**: Approve
+**Options**: ["Approve","Request Changes"]
+
+---
+
+## Decision Recorded
+**Timestamp**: 2026-11-19T13:34:42Z
+**Event**: DECISION_RECORDED
+**Checkpoint**: Construction Unit Approval
+**Unit**: u7-no-token-no-storage
+**Kind**: unit
+**Stage**: code-generation
+**Fingerprint**: sha256:a4665610f5ef1799eed0228025d47439d88e6ec7b99744f932d80dd1b7b58e53
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Options**: Approve,Request Changes
+**Asked Evidence**: {"code-generation":["sha256:e4894a9b4eb43ca1a2de4721cbc61bba4b4730505667cf0f0ba49a584dddacf7","sha256:994d6649db0b119dab753f00055edcffaf96c9bcb388cc358b33143210b352eb"]}
+**Run floors**: {"functional-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-requirements":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","infrastructure-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","code-generation":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1"}
+**Question Id**: 744e6bc0
+**Question Type**: unit-checkpoint
+**Question Chat**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question Shows**: sha256:78d13afd59e91061c1cbfbd7c12e89fed2e1473250064175963cc4ec5527347f
+
+---
+
+## Gate Approved
+**Timestamp**: 2026-11-19T13:35:10Z
+**Event**: GATE_APPROVED
+**Unit**: u7-no-token-no-storage
+**Stage**: code-generation
+**Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Gate Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Gate Scope**: unit-end
+**Checkpoint**: construction-unit
+**Fingerprint**: sha256:a4665610f5ef1799eed0228025d47439d88e6ec7b99744f932d80dd1b7b58e53
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+**Run floors**: {"functional-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-requirements":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","infrastructure-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","code-generation":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1"}
+**Verification Command SHA-256**: 62aa1e210627ea9b453c4ecc17a46647eb7b57735fde6ec9566ea66fcf0d5a1a
+**Verification Id**: eb8655c4-8381-49c7-83e6-d6ed12e1a1b1
+**Approved Evidence**: {"code-generation":["sha256:e4894a9b4eb43ca1a2de4721cbc61bba4b4730505667cf0f0ba49a584dddacf7","sha256:994d6649db0b119dab753f00055edcffaf96c9bcb388cc358b33143210b352eb"]}
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**User Input**: Approve
+**Person Reply**: Approve
+**Message Id**: ad0c421d
+
+---
