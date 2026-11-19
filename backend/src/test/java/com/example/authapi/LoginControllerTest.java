@@ -148,6 +148,48 @@ class LoginControllerTest {
         assertEquals(FAILURE, wrongPassword.getResponse().getContentAsString());
     }
 
+    // AC3.2.1: the demo credential still logs in after other users have signed up.
+    @Test
+    void demoCredentialStillLogsInAfterOtherSignups() throws Exception {
+        for (String name : new String[] {"DemoSideOne", "DemoSideTwo"}) {
+            mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                            .content("{\"username\":\"" + name + "\",\"password\":\"pw-side-1234\"}"))
+                    .andExpect(status().isCreated());
+        }
+        mvc.perform(post("/api/login").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"demouser\",\"password\":\"demopassword\"}"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"success\":true}", true));
+    }
+
+    // AC3.2.1: the demo match stays exact and case-sensitive (name and password).
+    @Test
+    void demoCredentialInAnotherCaseReturns401() throws Exception {
+        for (String body : new String[] {"{\"username\":\"DEMOUSER\",\"password\":\"demopassword\"}",
+                "{\"username\":\"demouser\",\"password\":\"DEMOPASSWORD\"}"}) {
+            mvc.perform(post("/api/login").contentType(MediaType.APPLICATION_JSON).content(body))
+                    .andExpect(status().isUnauthorized())
+                    .andExpect(content().json(FAILURE, true));
+        }
+    }
+
+    // AC3.2.1, AC3.2.2: signing up with the demo name is refused and the demo login is unchanged.
+    @Test
+    void signupWithDemoNameIsRefusedAndDemoStillLogsIn() throws Exception {
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"demouser\",\"password\":\"pw-take-1234\"}"))
+                .andExpect(status().isConflict())
+                .andExpect(content().json("{\"success\":false,\"errors\":[\"USERNAME_TAKEN\"]}", true));
+        mvc.perform(post("/api/login").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"demouser\",\"password\":\"demopassword\"}"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"success\":true}", true));
+        mvc.perform(post("/api/login").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"demouser\",\"password\":\"pw-take-1234\"}"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().json(FAILURE, true));
+    }
+
     // AC3.1.4: null fields are still a malformed request.
     @Test
     void nullFieldsStillReturn400() throws Exception {
