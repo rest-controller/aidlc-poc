@@ -1,0 +1,11 @@
+{
+  "stage": "code-generation",
+  "unit": "u5-login-registered",
+  "version": 1,
+  "writes": [
+    { "path": "backend/src/main/java/com/example/authapi/AccountService.java" },
+    { "path": "backend/src/main/java/com/example/authapi/LoginController.java" },
+    { "path": "backend/src/test/java/com/example/authapi/AccountServiceTest.java" },
+    { "path": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" }
+  ]
+}

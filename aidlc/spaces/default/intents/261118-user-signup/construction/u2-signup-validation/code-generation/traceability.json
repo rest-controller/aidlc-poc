@@ -1,0 +1,38 @@
+{
+  "stage": "code-generation",
+  "unit": "u2-signup-validation",
+  "upstream_ids": [
+    "AC2.2.1",
+    "AC2.2.2",
+    "AC2.2.3",
+    "AC2.2.4",
+    "AC2.2.5"
+  ],
+  "coverage": [
+    {
+      "id": "AC2.2.1",
+      "status": "OK",
+      "target": "backend/src/main/java/com/example/authapi/AccountService.java"
+    },
+    {
+      "id": "AC2.2.2",
+      "status": "OK",
+      "target": "backend/src/test/java/com/example/authapi/AccountServiceTest.java"
+    },
+    {
+      "id": "AC2.2.3",
+      "status": "OK",
+      "target": "backend/src/main/java/com/example/authapi/SignupController.java"
+    },
+    {
+      "id": "AC2.2.4",
+      "status": "OK",
+      "target": "frontend/src/SignUpPage.tsx"
+    },
+    {
+      "id": "AC2.2.5",
+      "status": "OK",
+      "target": "backend/src/test/java/com/example/authapi/SignupControllerTest.java"
+    }
+  ]
+}

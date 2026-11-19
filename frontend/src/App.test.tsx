@@ -48,6 +48,18 @@ describe('login flow', () => {
     expect(JSON.parse(init.body)).toEqual({ username: 'alice', password: 'secret' });
   });
 
+  // AC3.2.1: the demo credential is posted unchanged and lands on the done screen.
+  it('posts the demo credential exactly and shows the done screen', async () => {
+    const fetchMock = mockStatus(200);
+    renderAt('/');
+    await submit('demouser', 'demopassword');
+    expect(await screen.findByTestId('login-done')).toHaveTextContent(/^login done\.$/);
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual({
+      username: 'demouser',
+      password: 'demopassword',
+    });
+  });
+
   it.each([401, 400])('shows the failure message and stays on the form for %i', async (code) => {
     mockStatus(code);
     renderAt('/');

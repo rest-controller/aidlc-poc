@@ -1,0 +1,15 @@
+{
+  "stage": "code-generation",
+  "unit": "u2-signup-validation",
+  "version": 1,
+  "writes": [
+    { "path": "backend/src/main/java/com/example/authapi/AccountService.java" },
+    { "path": "backend/src/main/java/com/example/authapi/SignupController.java" },
+    { "path": "backend/src/main/java/com/example/authapi/SignupResult.java" },
+    { "path": "backend/src/test/java/com/example/authapi/AccountServiceTest.java" },
+    { "path": "backend/src/test/java/com/example/authapi/SignupControllerTest.java" },
+    { "path": "frontend/src/signupApi.ts" },
+    { "path": "frontend/src/SignUpPage.tsx" },
+    { "path": "frontend/src/SignUpPage.test.tsx" }
+  ]
+}
