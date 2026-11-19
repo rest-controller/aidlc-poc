@@ -1,0 +1,11 @@
+{
+  "stage": "code-generation",
+  "unit": "u8-signup-links",
+  "version": 1,
+  "writes": [
+    { "path": "frontend/src/LoginPage.tsx" },
+    { "path": "frontend/src/SignUpPage.tsx" },
+    { "path": "frontend/src/App.test.tsx" },
+    { "path": "frontend/src/SignUpPage.test.tsx" }
+  ]
+}

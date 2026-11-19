@@ -1,0 +1,285 @@
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter, useLocation } from 'react-router-dom';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import App from './App';
+
+// Shows the router's current path and navigation state so tests can see the replaced entry.
+function LocationProbe() {
+  const location = useLocation();
+  return (
+    <div
+      data-testid="probe"
+      data-path={location.pathname}
+      data-state={JSON.stringify(location.state)}
+    />
+  );
+}
+
+function renderAt(path: string) {
+  return render(
+    <MemoryRouter initialEntries={[path]}>
+      <App />
+      <LocationProbe />
+    </MemoryRouter>,
+  );
+}
+
+async function fillAndSubmit(username: string, password: string) {
+  const user = userEvent.setup();
+  await user.type(screen.getByTestId('signup-username'), username);
+  await user.type(screen.getByTestId('signup-password'), password);
+  await user.click(screen.getByTestId('signup-submit'));
+}
+
+const DONE = 'Sign-up done. You can log in now.';
+
+describe('sign-up flow', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('posts the typed values and goes to the login page with the one-time message on 201', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ status: 201 });
+    vi.stubGlobal('fetch', fetchMock);
+    renderAt('/signup');
+    await fillAndSubmit('alice', 'secret-pass');
+    expect(await screen.findByTestId('login-message')).toHaveTextContent(DONE);
+    expect(screen.getByRole('heading', { name: 'Login' })).toBeInTheDocument();
+    expect(screen.queryByTestId('login-done')).not.toBeInTheDocument();
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(url).toMatch(/\/api\/signup$/);
+    expect(init.method).toBe('POST');
+    expect(JSON.parse(init.body)).toEqual({ username: 'alice', password: 'secret-pass' });
+  });
+
+  it('removes the flag by replacing the history entry, so a reload shows nothing', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status: 201 }));
+    renderAt('/signup');
+    await fillAndSubmit('alice', 'secret-pass');
+    await screen.findByText(DONE);
+    await waitFor(() => expect(screen.getByTestId('probe').dataset.state).toBe('null'));
+    expect(screen.getByTestId('probe').dataset.path).toBe('/');
+    // A fresh visit to "/" (what a reload gives) has no flag and an empty message line.
+    document.body.innerHTML = '';
+    renderAt('/');
+    expect(screen.getByTestId('login-message')).toBeEmptyDOMElement();
+  });
+
+  it('disables the button while the request is pending', async () => {
+    let resolve!: (v: { status: number }) => void;
+    vi.stubGlobal('fetch', vi.fn().mockReturnValue(new Promise((r) => (resolve = r))));
+    renderAt('/signup');
+    await fillAndSubmit('alice', 'secret-pass');
+    expect(screen.getByTestId('signup-submit')).toBeDisabled();
+    expect(screen.getByTestId('signup-message')).toBeEmptyDOMElement();
+    // A 500 now shows the unreachable message once answered (see below); here only the pending state matters.
+    resolve({ status: 500 });
+    await waitFor(() => expect(screen.getByTestId('signup-submit')).toBeEnabled());
+  });
+
+  it('re-enables the button and stays on /signup when the backend is stopped', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Failed to fetch')));
+    renderAt('/signup');
+    await fillAndSubmit('alice', 'secret-pass');
+    await waitFor(() => expect(screen.getByTestId('signup-submit')).toBeEnabled());
+    expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    expect(screen.getByRole('heading', { name: 'Sign up' })).toBeInTheDocument();
+  });
+
+  it('stays on /signup for a 400 and a 500 answer', async () => {
+    for (const status of [400, 500]) {
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status }));
+      const { unmount } = renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() => expect(screen.getByTestId('signup-submit')).toBeEnabled());
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+      unmount();
+    }
+  });
+
+  describe('400 answers with reason codes', () => {
+    const USERNAME_MSG = 'Username must be 3-20 letters, digits, underscores or hyphens.';
+    const PASSWORD_MSG = 'Password must be at least 8 characters.';
+    const GENERIC_MSG = 'Please check the username and password and try again.';
+
+    function answerWith(body: unknown) {
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status: 400, json: async () => body }));
+    }
+
+    it('shows the username message for USERNAME_INVALID only', async () => {
+      answerWith({ success: false, errors: ['USERNAME_INVALID'] });
+      renderAt('/signup');
+      await fillAndSubmit('ab', 'secret-pass');
+      expect(await screen.findByText(USERNAME_MSG)).toBeInTheDocument();
+      expect(screen.getByTestId('signup-message')).toHaveTextContent(USERNAME_MSG);
+      expect(screen.getByTestId('signup-message')).not.toHaveTextContent(PASSWORD_MSG);
+    });
+
+    it('shows the password message for PASSWORD_INVALID only', async () => {
+      answerWith({ success: false, errors: ['PASSWORD_INVALID'] });
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'short');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(PASSWORD_MSG),
+      );
+      expect(screen.getByTestId('signup-message')).not.toHaveTextContent('Username must be');
+    });
+
+    it('shows both sentences in one message when both codes come back', async () => {
+      answerWith({ success: false, errors: ['USERNAME_INVALID', 'PASSWORD_INVALID'] });
+      renderAt('/signup');
+      await fillAndSubmit('a!', 'short');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(
+          `${USERNAME_MSG} ${PASSWORD_MSG}`,
+        ),
+      );
+    });
+
+    it('shows the generic message for a 400 without codes', async () => {
+      answerWith({ success: false });
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(GENERIC_MSG),
+      );
+    });
+
+    it('keeps the username, clears the password and re-enables the button', async () => {
+      answerWith({ success: false, errors: ['PASSWORD_INVALID'] });
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'short');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(PASSWORD_MSG),
+      );
+      expect(screen.getByTestId('signup-username')).toHaveValue('alice');
+      expect(screen.getByTestId('signup-password')).toHaveValue('');
+      expect(screen.getByTestId('signup-submit')).toBeEnabled();
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+  });
+
+  describe('409 answer for a taken username', () => {
+    const TAKEN_MSG = 'Username already taken.';
+
+    function answerTaken() {
+      vi.stubGlobal(
+        'fetch',
+        vi.fn().mockResolvedValue({
+          status: 409,
+          json: async () => ({ success: false, errors: ['USERNAME_TAKEN'] }),
+        }),
+      );
+    }
+
+    it('shows "Username already taken." and stays on /signup', async () => {
+      answerTaken();
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG),
+      );
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+
+    it('keeps the username, clears the password and re-enables the button', async () => {
+      answerTaken();
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG),
+      );
+      expect(screen.getByTestId('signup-username')).toHaveValue('alice');
+      expect(screen.getByTestId('signup-password')).toHaveValue('');
+      expect(screen.getByTestId('signup-submit')).toBeEnabled();
+    });
+
+    it('clears the taken message when the next submit starts', async () => {
+      answerTaken();
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG),
+      );
+      vi.stubGlobal('fetch', vi.fn().mockReturnValue(new Promise(() => {})));
+      const user = userEvent.setup();
+      await user.type(screen.getByTestId('signup-password'), 'secret-pass');
+      await user.click(screen.getByTestId('signup-submit'));
+      await waitFor(() => expect(screen.getByTestId('signup-message')).toBeEmptyDOMElement());
+    });
+  });
+
+  describe('server cannot be reached', () => {
+    const UNREACHABLE_MSG = 'Unable to reach the server. Please try again.';
+
+    it('shows the message when fetch rejects and stays on /signup', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Failed to fetch')));
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(UNREACHABLE_MSG),
+      );
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+
+    it('shows the same message for an unexpected status (500)', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status: 500 }));
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(UNREACHABLE_MSG),
+      );
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+
+    it('keeps the username and password and re-enables the button', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Failed to fetch')));
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(UNREACHABLE_MSG),
+      );
+      expect(screen.getByTestId('signup-username')).toHaveValue('alice');
+      expect(screen.getByTestId('signup-password')).toHaveValue('secret-pass');
+      expect(screen.getByTestId('signup-submit')).toBeEnabled();
+    });
+  });
+
+  it('has labelled fields with hints tied to them', () => {
+    renderAt('/signup');
+    const username = screen.getByLabelText('Username');
+    const password = screen.getByLabelText('Password');
+    expect(username).toHaveAccessibleDescription('3-20 letters, digits, underscores or hyphens');
+    expect(password).toHaveAccessibleDescription('At least 8 characters');
+    expect(screen.getByRole('button', { name: 'Sign up' })).toBeInTheDocument();
+    expect(screen.getByTestId('signup-message')).toHaveAttribute('role', 'alert');
+  });
+
+  it('writes nothing to local or session storage', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status: 201 }));
+    renderAt('/signup');
+    await fillAndSubmit('alice', 'secret-pass');
+    await screen.findByText(DONE);
+    expect(localStorage.length).toBe(0);
+    expect(sessionStorage.length).toBe(0);
+  });
+
+  // AC1.1.2: the sign-up page links back to the login page.
+  it('shows a Back to login link that opens the login page without a request', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+    renderAt('/signup');
+    const link = screen.getByRole('link', { name: 'Back to login' });
+    expect(link).toHaveAttribute('href', '/');
+    await userEvent.setup().click(link);
+    expect(await screen.findByRole('heading', { name: 'Login' })).toBeInTheDocument();
+    expect(screen.getByTestId('probe').dataset.path).toBe('/');
+    expect(screen.getByTestId('login-message')).toBeEmptyDOMElement();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+});

@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class LoginController {
 
-    private final DemoCredential credential;
+    private final AccountService accounts;
 
-    public LoginController(DemoCredential credential) {
-        this.credential = credential;
+    public LoginController(AccountService accounts) {
+        this.accounts = accounts;
     }
 
     @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -25,7 +25,8 @@ public class LoginController {
         if (request.username() == null || request.password() == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new LoginResult(false));
         }
-        if (credential.matches(request.username(), request.password())) {
+        // FR6.1, FR6.4 (contract C2): demo or registered user; one 401 answer for every failure.
+        if (accounts.authenticate(request.username(), request.password())) {
             return ResponseEntity.ok(new LoginResult(true));
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResult(false));

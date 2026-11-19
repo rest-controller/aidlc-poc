@@ -1,0 +1,15 @@
+{
+  "stage": "code-generation",
+  "unit": "u7-no-token-no-storage",
+  "upstream_ids": ["US3.3", "AC3.3.1", "AC3.3.2", "AC3.3.3", "AC3.3.4", "FR1.4", "FR7.1", "NFR1"],
+  "coverage": [
+    { "id": "US3.3", "status": "OK", "target": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "id": "AC3.3.1", "status": "OK", "target": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "id": "AC3.3.2", "status": "OK", "target": "frontend/src/App.test.tsx" },
+    { "id": "AC3.3.3", "status": "OK", "target": "backend/src/test/java/com/example/authapi/ConsoleOutputTest.java" },
+    { "id": "AC3.3.4", "status": "OK", "target": "frontend/src/App.test.tsx" },
+    { "id": "FR1.4", "status": "OK", "target": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "id": "FR7.1", "status": "OK", "target": "frontend/src/App.test.tsx" },
+    { "id": "NFR1", "status": "OK", "target": "backend/src/test/java/com/example/authapi/RequestPrintingTest.java" }
+  ]
+}

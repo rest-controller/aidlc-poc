@@ -1,0 +1,3 @@
+manifest	fc16aa1245b6cc6bcd194c7eb64ca8379abda0ac20873501b8d2d24ccdd0bb43	-
+	backend/src/test/java/com/example/authapi/LoginControllerTest.java	100644	5164594957f0d0c5433adfde787b357caadf80de50ee4c7b9c912f050de61ace
+	frontend/src/App.test.tsx	100644	494cf338ebabf0f4ccd32d0c72bc0cda628dc0933fc563903c311999ffb9f7a3

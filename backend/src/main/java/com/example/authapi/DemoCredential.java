@@ -1,5 +1,6 @@
 package com.example.authapi;
 
+import java.util.Locale;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,5 +21,13 @@ public class DemoCredential {
             return false;
         }
         return USERNAME.equals(username) && PASSWORD.equals(password);
+    }
+
+    /**
+     * True when the name is the demo user's name in any letter case (FR3.2). Locale-independent
+     * and null-safe. Sign-up uses this to treat the name as taken; login's exact rule is unchanged.
+     */
+    public boolean isDemoUsername(String username) {
+        return username != null && USERNAME.equals(username.toLowerCase(Locale.ROOT));
     }
 }
