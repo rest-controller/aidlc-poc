@@ -76,10 +76,10 @@ describe('sign-up flow', () => {
     renderAt('/signup');
     await fillAndSubmit('alice', 'secret-pass');
     expect(screen.getByTestId('signup-submit')).toBeDisabled();
-    // A 500 keeps this test about the pending state; a 409 now shows a message (see below).
+    expect(screen.getByTestId('signup-message')).toBeEmptyDOMElement();
+    // A 500 now shows the unreachable message once answered (see below); here only the pending state matters.
     resolve({ status: 500 });
     await waitFor(() => expect(screen.getByTestId('signup-submit')).toBeEnabled());
-    expect(screen.getByTestId('signup-message')).toBeEmptyDOMElement();
   });
 
   it('re-enables the button and stays on /signup when the backend is stopped', async () => {
@@ -181,7 +181,9 @@ describe('sign-up flow', () => {
       answerTaken();
       renderAt('/signup');
       await fillAndSubmit('alice', 'secret-pass');
-      await waitFor(() => expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG));
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG),
+      );
       expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
     });
 
@@ -189,7 +191,9 @@ describe('sign-up flow', () => {
       answerTaken();
       renderAt('/signup');
       await fillAndSubmit('alice', 'secret-pass');
-      await waitFor(() => expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG));
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG),
+      );
       expect(screen.getByTestId('signup-username')).toHaveValue('alice');
       expect(screen.getByTestId('signup-password')).toHaveValue('');
       expect(screen.getByTestId('signup-submit')).toBeEnabled();
@@ -199,12 +203,50 @@ describe('sign-up flow', () => {
       answerTaken();
       renderAt('/signup');
       await fillAndSubmit('alice', 'secret-pass');
-      await waitFor(() => expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG));
-      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status: 500 }));
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(TAKEN_MSG),
+      );
+      vi.stubGlobal('fetch', vi.fn().mockReturnValue(new Promise(() => {})));
       const user = userEvent.setup();
       await user.type(screen.getByTestId('signup-password'), 'secret-pass');
       await user.click(screen.getByTestId('signup-submit'));
       await waitFor(() => expect(screen.getByTestId('signup-message')).toBeEmptyDOMElement());
+    });
+  });
+
+  describe('server cannot be reached', () => {
+    const UNREACHABLE_MSG = 'Unable to reach the server. Please try again.';
+
+    it('shows the message when fetch rejects and stays on /signup', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Failed to fetch')));
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(UNREACHABLE_MSG),
+      );
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+
+    it('shows the same message for an unexpected status (500)', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status: 500 }));
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(UNREACHABLE_MSG),
+      );
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+
+    it('keeps the username and password and re-enables the button', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Failed to fetch')));
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(UNREACHABLE_MSG),
+      );
+      expect(screen.getByTestId('signup-username')).toHaveValue('alice');
+      expect(screen.getByTestId('signup-password')).toHaveValue('secret-pass');
+      expect(screen.getByTestId('signup-submit')).toBeEnabled();
     });
   });
 
