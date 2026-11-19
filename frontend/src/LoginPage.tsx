@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { login } from './loginApi';
 
 type Status = 'idle' | 'submitting' | 'failed' | 'unreachable';
@@ -72,6 +72,7 @@ export default function LoginPage() {
       <p data-testid="login-message" role="alert">
         {status === 'idle' && signedUp ? SIGNED_UP_MESSAGE : MESSAGES[status]}
       </p>
+      <Link to="/signup">Sign up</Link>
     </main>
   );
 }

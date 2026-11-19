@@ -1,5 +1,5 @@
 import { FormEvent, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signup } from './signupApi';
 
 type Status = 'idle' | 'submitting';
@@ -94,6 +94,7 @@ export default function SignUpPage() {
       <p data-testid="signup-message" role="alert">
         {message}
       </p>
+      <Link to="/">Back to login</Link>
     </main>
   );
 }

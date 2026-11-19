@@ -268,4 +268,18 @@ describe('sign-up flow', () => {
     expect(localStorage.length).toBe(0);
     expect(sessionStorage.length).toBe(0);
   });
+
+  // AC1.1.2: the sign-up page links back to the login page.
+  it('shows a Back to login link that opens the login page without a request', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+    renderAt('/signup');
+    const link = screen.getByRole('link', { name: 'Back to login' });
+    expect(link).toHaveAttribute('href', '/');
+    await userEvent.setup().click(link);
+    expect(await screen.findByRole('heading', { name: 'Login' })).toBeInTheDocument();
+    expect(screen.getByTestId('probe').dataset.path).toBe('/');
+    expect(screen.getByTestId('login-message')).toBeEmptyDOMElement();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
 });

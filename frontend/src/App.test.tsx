@@ -155,4 +155,29 @@ describe('login flow', () => {
     expect(localStorage.length).toBe(0);
     expect(sessionStorage.length).toBe(0);
   });
+
+  // AC1.1.1: the login page links to the sign-up page.
+  it('shows a Sign up link on the login page that opens the sign-up page', async () => {
+    renderAt('/');
+    const link = screen.getByRole('link', { name: 'Sign up' });
+    expect(link).toHaveAttribute('href', '/signup');
+    await userEvent.setup().click(link);
+    expect(await screen.findByRole('heading', { name: 'Sign up' })).toBeInTheDocument();
+    expect(screen.getByTestId('signup-submit')).toBeInTheDocument();
+  });
+
+  // AC1.1.2: login -> sign up -> back to login leaves a working, empty login form.
+  it('returns to a working empty login form after Sign up then Back to login', async () => {
+    const fetchMock = mockStatus(200);
+    renderAt('/');
+    const user = userEvent.setup();
+    await user.click(screen.getByRole('link', { name: 'Sign up' }));
+    await user.click(await screen.findByRole('link', { name: 'Back to login' }));
+    expect(await screen.findByRole('heading', { name: 'Login' })).toBeInTheDocument();
+    expect(screen.getByTestId('username')).toHaveValue('');
+    expect(screen.getByTestId('password')).toHaveValue('');
+    expect(fetchMock).not.toHaveBeenCalled();
+    await submit('alice', 'secret');
+    expect(await screen.findByTestId('login-done')).toBeInTheDocument();
+  });
 });
