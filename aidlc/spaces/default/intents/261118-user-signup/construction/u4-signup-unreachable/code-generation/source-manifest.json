@@ -1,0 +1,9 @@
+{
+  "stage": "code-generation",
+  "unit": "u4-signup-unreachable",
+  "version": 1,
+  "writes": [
+    { "path": "frontend/src/SignUpPage.tsx" },
+    { "path": "frontend/src/SignUpPage.test.tsx" }
+  ]
+}

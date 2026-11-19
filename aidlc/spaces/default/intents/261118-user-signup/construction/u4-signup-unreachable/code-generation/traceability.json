@@ -1,0 +1,32 @@
+{
+  "stage": "code-generation",
+  "unit": "u4-signup-unreachable",
+  "upstream_ids": [
+    "US2.4",
+    "AC2.4.1",
+    "AC2.4.2",
+    "FR4.3"
+  ],
+  "coverage": [
+    {
+      "id": "US2.4",
+      "status": "OK",
+      "target": "frontend/src/SignUpPage.tsx"
+    },
+    {
+      "id": "AC2.4.1",
+      "status": "OK",
+      "target": "frontend/src/SignUpPage.tsx"
+    },
+    {
+      "id": "AC2.4.2",
+      "status": "OK",
+      "target": "frontend/src/SignUpPage.test.tsx"
+    },
+    {
+      "id": "FR4.3",
+      "status": "OK",
+      "target": "frontend/src/SignUpPage.tsx"
+    }
+  ]
+}

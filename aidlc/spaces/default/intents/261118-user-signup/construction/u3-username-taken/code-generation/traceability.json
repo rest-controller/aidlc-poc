@@ -1,0 +1,32 @@
+{
+  "stage": "code-generation",
+  "unit": "u3-username-taken",
+  "upstream_ids": [
+    "AC2.3.1",
+    "AC2.3.2",
+    "AC2.3.3",
+    "AC2.3.4"
+  ],
+  "coverage": [
+    {
+      "id": "AC2.3.1",
+      "status": "OK",
+      "target": "backend/src/main/java/com/example/authapi/AccountService.java"
+    },
+    {
+      "id": "AC2.3.2",
+      "status": "OK",
+      "target": "backend/src/main/java/com/example/authapi/DemoCredential.java"
+    },
+    {
+      "id": "AC2.3.3",
+      "status": "OK",
+      "target": "backend/src/test/java/com/example/authapi/AccountServiceTest.java"
+    },
+    {
+      "id": "AC2.3.4",
+      "status": "OK",
+      "target": "frontend/src/SignUpPage.tsx"
+    }
+  ]
+}
