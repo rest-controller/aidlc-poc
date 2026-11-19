@@ -8953,3 +8953,511 @@
 **Review Finding Dispositions**: {"version":1,"dispositions":[{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u4-signup-unreachable/code-generation/code-generation-plan.md","id":"R-01","fingerprint":"sha256:0808ededd0ab09457747b8ccc24789a494ae618d6de8775e49286663edf62a8a","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u4-signup-unreachable/4dbc1c56b76452e6/1.json","digest":"sha256:770fdf63b7d2580cb57550632d9fe3bc5b60a8e27d954ac31ed6fc71f14f3b7a"}},{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u4-signup-unreachable/code-generation/code-generation-plan.md","id":"R-02","fingerprint":"sha256:7b40a1cee33b20df257830517776c1ec29a6148d9203711e901b0f670d5d1ffd","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u4-signup-unreachable/4dbc1c56b76452e6/1.json","digest":"sha256:770fdf63b7d2580cb57550632d9fe3bc5b60a8e27d954ac31ed6fc71f14f3b7a"}}]}
 
 ---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T07:25:50Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: abd7e0853278bd2ae
+**Message**: yes, start AP-8
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T07:26:07Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: typed
+**Message Id**: 498fe1d4
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261118-user-signup/construction/u4-signup-unreachable/code-generation/code-generation-questions.md","entries":{"Plan Approval":"af305586f4ae6750"}}
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T07:27:18Z
+**Event**: UNIT_SKIPPED
+**Stage**: functional-design
+**Unit**: u5-login-registered
+**Reason**: Design skipped by agreement for the remaining small units: this unit only lets login also accept a registered account (FR6.1, FR6.3, FR6.4, AC3.1.1-AC3.1.4, contract C2 unchanged, C3 authenticate); no new entity, quality target or infrastructure.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T07:27:28Z
+**Event**: UNIT_SKIPPED
+**Stage**: nfr-requirements
+**Unit**: u5-login-registered
+**Reason**: Design skipped by agreement for the remaining small units: this unit only lets login also accept a registered account (FR6.1, FR6.3, FR6.4, AC3.1.1-AC3.1.4, contract C2 unchanged, C3 authenticate); no new entity, quality target or infrastructure.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T07:27:38Z
+**Event**: UNIT_SKIPPED
+**Stage**: nfr-design
+**Unit**: u5-login-registered
+**Reason**: Design skipped by agreement for the remaining small units: this unit only lets login also accept a registered account (FR6.1, FR6.3, FR6.4, AC3.1.1-AC3.1.4, contract C2 unchanged, C3 authenticate); no new entity, quality target or infrastructure.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Skipped
+**Timestamp**: 2026-11-19T07:27:48Z
+**Event**: UNIT_SKIPPED
+**Stage**: infrastructure-design
+**Unit**: u5-login-registered
+**Reason**: Design skipped by agreement for the remaining small units: this unit only lets login also accept a registered account (FR6.1, FR6.3, FR6.4, AC3.1.1-AC3.1.4, contract C2 unchanged, C3 authenticate); no new entity, quality target or infrastructure.
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T07:28:40Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-plan.md
+**Context**: construction > u5-login-registered > code-generation > code-generation-plan.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T07:28:46Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/unit-test-instructions.md
+**Context**: construction > u5-login-registered > code-generation > unit-test-instructions.md
+
+---
+
+## Question Asked
+**Timestamp**: 2026-11-19T07:29:05Z
+**Event**: QUESTION_ASKED
+**Question Id**: a3e04044
+**Question Type**: plan-approval
+**Question Chat**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question Shows**: sha256:78aac7b77811548b8c440cd92cdccb6fa33268db7bd666cb5e8b65864cc93615
+**Stage**: code-generation
+**Unit**: u5-login-registered
+**Ask Id**: 41a1ccd8dd3cbbc4d603a5522310e114
+**Options**: ["Approve Plan","Request Changes","I'll edit the files"]
+**Question Text SHA-256**: b88f7e49c247827cfc8e28c5948d841ac1d3a405fabe56eae8acbe38bbf6cd64
+**Questions File**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-questions.md
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T07:29:41Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: picker
+**Picked**: ["Approve Plan"]
+**Message Id**: 250f6cf3
+**Open Questions**: a3e04044
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-questions.md","entries":{"Plan Approval":"d12e55ef62cf7b9d"}}
+
+---
+
+## Plan Approval Recorded
+**Timestamp**: 2026-11-19T07:29:41Z
+**Event**: PLAN_APPROVAL_RECORDED
+**Stage**: code-generation
+**Details**: Approve Plan
+**Checkpoint**: plan-approval
+**Plan Target**: unit:u5-login-registered
+**Intent**: 01a1ee5d-9ae9-7eb1-8c2a-05cb2123e983
+**Directive Epoch**: sha256:4379806b3b212d6f46d4f77d22b24dc1ef3b2081c1dfeaa8e1ccd657e6d5e253
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+**Approval Fingerprint**: sha256:v3:c6e9bb47e5654511507402d1707373ee668b4e7b40c00c23d5203fe0bd3de08b
+**Questions File**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-questions.md
+**Questions SHA-256**: 775a03f379bdcc649968a2b5913f57010c005a4b3d2bc1460debf68d09454d8f
+**Prompt SHA-256**: 5a44c4632186e1c27839bc6e146eea8a737ccab8f38b37566be01499ca488912
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Asked By**: engine
+**Person Reply**: Approve Plan
+**Message Id**: 250f6cf3
+**Unit**: u5-login-registered
+
+---
+
+## Question Replied
+**Timestamp**: 2026-11-19T07:29:42Z
+**Event**: QUESTION_REPLIED
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question**: Approve the code plan for u5-login-registered (AP-8)? Login also accepts accounts made through sign-up; the demo user's rule stays first and unchanged; one identical 401 for wrong password or unknown name (backend only, about 7 tests).
+**Reply**: Approve Plan
+**Options**: ["Approve Plan","Request Changes","I'll edit the files"]
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T07:30:35Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-developer-agent
+
+---
+
+## Guard Stood Aside
+**Timestamp**: 2026-11-19T07:30:36Z
+**Event**: GUARD_STOOD_ASIDE
+**Guard**: plan-approval
+**Authority**: instruction
+**Grant**: none
+**Actor**: subagent
+**Stage**: code-generation
+**Tool**: Agent
+**Details**: dispatch of aidlc-developer-agent
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T07:30:55Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: a1a5477b4162e167d
+**Message**: continue
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T08:19:44Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-developer-agent
+**Agent ID**: ab7738860d7532825
+**Message**: The backend login now accepts users registered through sign-up, and the whole backend suite passes (68 tests, 0 failures). I didn't run the frontend tests, since nothing there changed, and I didn't to
+
+---
+
+## Host Turn
+**Timestamp**: 2026-11-19T08:19:46Z
+**Event**: HOST_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: host
+**Reason**: claude task notification
+**Source**: template
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T08:20:03Z
+**Event**: SENSOR_FIRED
+**Fire id**: 7092178a
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-plan.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T08:20:04Z
+**Event**: SENSOR_PASSED
+**Fire id**: 7092178a
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-plan.md
+**Duration ms**: 622
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T08:20:05Z
+**Event**: SENSOR_FIRED
+**Fire id**: f9d7d699
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/unit-test-instructions.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T08:20:06Z
+**Event**: SENSOR_PASSED
+**Fire id**: f9d7d699
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/unit-test-instructions.md
+**Duration ms**: 660
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T08:20:06Z
+**Event**: SENSOR_FIRED
+**Fire id**: 15b4e7ab
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-summary.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T08:20:07Z
+**Event**: SENSOR_PASSED
+**Fire id**: 15b4e7ab
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-summary.md
+**Duration ms**: 671
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T08:20:08Z
+**Event**: SENSOR_FIRED
+**Fire id**: 79145d9a
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T08:20:08Z
+**Event**: SENSOR_PASSED
+**Fire id**: 79145d9a
+**Sensor ID**: required-sections
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/traceability.json
+**Duration ms**: 650
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-19T08:20:09Z
+**Event**: SENSOR_FIRED
+**Fire id**: 97869a84
+**Sensor ID**: traceability
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-19T08:20:10Z
+**Event**: SENSOR_PASSED
+**Fire id**: 97869a84
+**Sensor ID**: traceability
+**Stage slug**: code-generation
+**Unit**: u5-login-registered
+**Output path**: aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/traceability.json
+**Duration ms**: 675
+
+---
+
+## Change Accepted
+**Timestamp**: 2026-11-19T08:20:11Z
+**Event**: CHANGE_ACCEPTED
+**Stage**: code-generation
+**Unit**: u3-username-taken
+**Checkpoint**: review-receipt
+**Changed**: backend/src/main/java/com/example/authapi/AccountService.java, backend/src/test/java/com/example/authapi/AccountServiceTest.java
+**Recorded**: sha256:f422d395848f95ad277bf6529871bec6fea82697582143a34fbe42b98db9a268
+**Current**: sha256:1c4b3420223a072b1487634aeef13208dd9ecd88a66ac0d20b33882d124d2561
+**Details**: backend/src/main/java/com/example/authapi/AccountService.java, backend/src/test/java/com/example/authapi/AccountServiceTest.java changed after the username taken Unit was reviewed; carrying on.
+
+---
+
+## Review Requested
+**Timestamp**: 2026-11-19T08:20:11Z
+**Event**: REVIEW_REQUESTED
+**Stage**: code-generation
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Unit**: u5-login-registered
+**Iteration**: 1
+**Artifact Fingerprint**: sha256:3aaa5e99a99250f4bd20dd5d804d60dc72d00ed1cb2ed4185b4d44962823ce3c
+**Request Id**: review:7b59a4357d98c37060397b6bd989dfc9
+**Source Fingerprint**: 030306b4f103f2c3f15cbdcf76ccdaf3293559b4d1cf42238117b1d914c23daf
+**Unit Source Fingerprint**: sha256:9b7705d3f308290d427c58902e4f30b2ada2493c949d54c192937b95fb3d2036
+**Review File**: .aidlc-engine/reviews/code-generation/units/u5-login-registered/4dbc1c56b76452e6/1.7b59a4357d98c37060397b6bd989dfc9.review.md
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-19T08:20:21Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T08:20:43Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: unknown
+**Agent ID**: a43bcea1505ed0222
+**Message**: continue
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-19T08:26:38Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261118-user-signup/.aidlc-engine/reviews/code-generation/units/u5-login-registered/4dbc1c56b76452e6/1.7b59a4357d98c37060397b6bd989dfc9.review.md
+**Context**: .aidlc-engine > reviews > code-generation > units > u5-login-registered > 4dbc1c56b76452e6 > 1.7b59a4357d98c37060397b6bd989dfc9.review.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-19T08:26:45Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-architecture-reviewer-agent
+**Agent ID**: a88148e9bde4a3a4d
+**Message**: **Reviewer:** aidlc-architecture-reviewer-agent\n\n**Verdict: READY.** There are no Critical or Major findings and two Minor ones. I wrote the review to `<project-dir>\aidlc\spac
+**Review File Digest**: .aidlc-engine/reviews/code-generation/units/u5-login-registered/4dbc1c56b76452e6/1.7b59a4357d98c37060397b6bd989dfc9.review.md=489b4eac860649ab9719bccac9d46de1ea653df5e20150d02aa2c4aa05b9cd23
+
+---
+
+## Host Turn
+**Timestamp**: 2026-11-19T08:26:49Z
+**Event**: HOST_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: host
+**Reason**: claude task notification
+**Source**: template
+
+---
+
+## Review Completed
+**Timestamp**: 2026-11-19T08:27:24Z
+**Event**: REVIEW_COMPLETED
+**Stage**: code-generation
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Unit**: u5-login-registered
+**Iteration**: 1
+**Verdict**: READY
+**Review Headings Made Level 3**: line 3: ## Review
+**Review Verdict Dictated**: no
+**Request Fingerprint**: sha256:3aaa5e99a99250f4bd20dd5d804d60dc72d00ed1cb2ed4185b4d44962823ce3c
+**Artifact Fingerprint**: sha256:3aaa5e99a99250f4bd20dd5d804d60dc72d00ed1cb2ed4185b4d44962823ce3c
+**Request Id**: review:7b59a4357d98c37060397b6bd989dfc9
+**Request Source Fingerprint**: 030306b4f103f2c3f15cbdcf76ccdaf3293559b4d1cf42238117b1d914c23daf
+**Source Fingerprint**: 030306b4f103f2c3f15cbdcf76ccdaf3293559b4d1cf42238117b1d914c23daf
+**Unit Source Fingerprint**: sha256:9b7705d3f308290d427c58902e4f30b2ada2493c949d54c192937b95fb3d2036
+**Review Record**: .aidlc-engine/reviews/code-generation/units/u5-login-registered/4dbc1c56b76452e6/1.json
+**Review Record Digest**: sha256:ca5784ff6ba09da6264000e834ed2b6b19a2922f90bfd37146a6b6eb3c7b772c
+**Testing Contract**: sha256:ee88ed1d0315ef15b8bb8a269bbc6cc4fa7e2c33d79c60667ba4866a7eaf7f90
+
+---
+
+## Unit Started
+**Timestamp**: 2026-11-19T08:27:56Z
+**Event**: UNIT_STARTED
+**Stage**: code-generation
+**Unit**: u5-login-registered
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Unit Completed
+**Timestamp**: 2026-11-19T08:27:59Z
+**Event**: UNIT_COMPLETED
+**Stage**: code-generation
+**Unit**: u5-login-registered
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Change Accepted
+**Timestamp**: 2026-11-19T08:28:24Z
+**Event**: CHANGE_ACCEPTED
+**Stage**: code-generation
+**Unit**: u5-login-registered
+**Checkpoint**: review-receipt
+**Changed**: backend/src/test/java/com/example/authapi/LoginControllerTest.java
+**Recorded**: sha256:9b7705d3f308290d427c58902e4f30b2ada2493c949d54c192937b95fb3d2036
+**Current**: sha256:1a812ccb1941de6fd54712f10d63bbf8650bd1b82fa892c4e223f13129b58c4f
+**Details**: backend/src/test/java/com/example/authapi/LoginControllerTest.java changed after the login registered Unit was reviewed; carrying on.
+
+---
+
+## Checkpoint Verification Recorded
+**Timestamp**: 2026-11-19T08:29:14Z
+**Event**: CHECKPOINT_VERIFICATION_RECORDED
+**Unit**: u5-login-registered
+**Kind**: unit
+**Stage**: code-generation
+**Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Verification Id**: 78b7f5df-c33f-460a-91d3-1c9f826960bc
+**Fingerprint**: sha256:d9de81f3705a9a5f88646df301666b4d4b4f2ac6ae386bfe6941b170970bbc67
+**Command SHA-256**: 62aa1e210627ea9b453c4ecc17a46647eb7b57735fde6ec9566ea66fcf0d5a1a
+**Exit Code**: 0
+**Verified**: true
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-19T08:39:42Z
+**Event**: HUMAN_TURN
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Origin**: person
+**Source**: picker
+**Picked**: ["Approve"]
+**Message Id**: bea94b52
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-questions.md","entries":{"Plan Approval":"d12e55ef62cf7b9d"}}
+
+---
+
+## Question Replied
+**Timestamp**: 2026-11-19T08:39:43Z
+**Event**: QUESTION_REPLIED
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question**: AP-8 checkpoint passed: full backend and frontend suites green, reviewer said READY (I also added the one test assertion it suggested). Approve, then I commit, push and open the PR?
+**Reply**: Approve
+**Options**: ["Approve","Request Changes"]
+
+---
+
+## Decision Recorded
+**Timestamp**: 2026-11-19T08:39:57Z
+**Event**: DECISION_RECORDED
+**Checkpoint**: Construction Unit Approval
+**Unit**: u5-login-registered
+**Kind**: unit
+**Stage**: code-generation
+**Fingerprint**: sha256:d9de81f3705a9a5f88646df301666b4d4b4f2ac6ae386bfe6941b170970bbc67
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Options**: Approve,Request Changes
+**Asked Evidence**: {"code-generation":["sha256:3aaa5e99a99250f4bd20dd5d804d60dc72d00ed1cb2ed4185b4d44962823ce3c","sha256:9b7705d3f308290d427c58902e4f30b2ada2493c949d54c192937b95fb3d2036"]}
+**Run floors**: {"functional-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-requirements":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","infrastructure-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","code-generation":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1"}
+**Question Id**: 7aa04ba4
+**Question Type**: unit-checkpoint
+**Question Chat**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**Question Shows**: sha256:07d298af816536ff3170b9616064c7d4eaecea79120c5c96603cf2afc4f5cc3e
+
+---
+
+## Gate Approved
+**Timestamp**: 2026-11-19T08:40:02Z
+**Event**: GATE_APPROVED
+**Unit**: u5-login-registered
+**Stage**: code-generation
+**Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Gate Stages**: functional-design, nfr-requirements, nfr-design, infrastructure-design, code-generation
+**Gate Scope**: unit-end
+**Checkpoint**: construction-unit
+**Fingerprint**: sha256:d9de81f3705a9a5f88646df301666b4d4b4f2ac6ae386bfe6941b170970bbc67
+**Run floor**: WORKFLOW_STARTED:2026-11-18T11:14:34Z#1
+**Run floors**: {"functional-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-requirements":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","nfr-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","infrastructure-design":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1","code-generation":"WORKFLOW_STARTED:2026-11-18T11:14:34Z#1"}
+**Verification Command SHA-256**: 62aa1e210627ea9b453c4ecc17a46647eb7b57735fde6ec9566ea66fcf0d5a1a
+**Verification Id**: 78b7f5df-c33f-460a-91d3-1c9f826960bc
+**Approved Evidence**: {"code-generation":["sha256:3aaa5e99a99250f4bd20dd5d804d60dc72d00ed1cb2ed4185b4d44962823ce3c","sha256:9b7705d3f308290d427c58902e4f30b2ada2493c949d54c192937b95fb3d2036"]}
+**Session**: 94dda786-7b36-4a76-bc25-f78787446e5e
+**User Input**: Approve
+**Person Reply**: Approve
+**Message Id**: bea94b52
+**Review Finding Dispositions**: {"version":1,"dispositions":[{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-plan.md","id":"R-01","fingerprint":"sha256:d030394b5b3fcbceb94fe84f369b31b84a7976790b274641742136c7be213e57","status":"Changed after review","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u5-login-registered/4dbc1c56b76452e6/1.json","digest":"sha256:ca5784ff6ba09da6264000e834ed2b6b19a2922f90bfd37146a6b6eb3c7b772c"}},{"artifact":"aidlc/spaces/default/intents/261118-user-signup/construction/u5-login-registered/code-generation/code-generation-plan.md","id":"R-02","fingerprint":"sha256:230f88fa1c621e1ef613692f4240e7879bac08fba1970e495c2f7ff92c617d76","status":"Changed after review","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/code-generation/units/u5-login-registered/4dbc1c56b76452e6/1.json","digest":"sha256:ca5784ff6ba09da6264000e834ed2b6b19a2922f90bfd37146a6b6eb3c7b772c"}}]}
+
+---

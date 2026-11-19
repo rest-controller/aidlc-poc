@@ -1,0 +1,5 @@
+manifest	a251e5a16646df99560b745606071f6e013b91558811d6ac38e72b16f49f33c2	-
+	backend/src/main/java/com/example/authapi/AccountService.java	100644	908421d20641f4d8f8e16a6d36b37f79d8ef337b7e024388ec4b023dd1d1a690
+	backend/src/main/java/com/example/authapi/LoginController.java	100644	9e4b6dc4d7b6befe0563a11acce0410c884ba684addac3222779c9aca27341de
+	backend/src/test/java/com/example/authapi/AccountServiceTest.java	100644	51c4120b806745c5ae0c43925847c8c0b66c349b49652f678217b75f686614ba
+	backend/src/test/java/com/example/authapi/LoginControllerTest.java	100644	579ec9975d9868aa5dfba958f1253edd83968363d7b7d1d9fdfed192023dbd06
