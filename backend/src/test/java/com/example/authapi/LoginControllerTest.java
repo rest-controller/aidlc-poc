@@ -190,6 +190,20 @@ class LoginControllerTest {
                 .andExpect(content().json(FAILURE, true));
     }
 
+    // AC3.3.1: a registered user's login issues no cookie, Authorization header or token.
+    @Test
+    void registeredUserLoginHasNoCookieOrToken() throws Exception {
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"PlainLogin\",\"password\":\"pw-plain-1234\"}"))
+                .andExpect(status().isCreated());
+        mvc.perform(post("/api/login").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"PlainLogin\",\"password\":\"pw-plain-1234\"}"))
+                .andExpect(status().isOk())
+                .andExpect(header().doesNotExist("Set-Cookie"))
+                .andExpect(header().doesNotExist("Authorization"))
+                .andExpect(jsonPath("$.token").doesNotExist());
+    }
+
     // AC3.1.4: null fields are still a malformed request.
     @Test
     void nullFieldsStillReturn400() throws Exception {

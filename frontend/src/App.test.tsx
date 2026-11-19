@@ -134,4 +134,25 @@ describe('login flow', () => {
     expect(localStorage.length).toBe(0);
     expect(sessionStorage.length).toBe(0);
   });
+
+  // AC3.3.2, AC3.3.4: sign up, then log in, in one flow: nothing stored, plain done page.
+  it('leaves storage empty and the done page plain after sign-up then login', async () => {
+    const fetchMock = mockStatus(201);
+    renderAt('/signup');
+    const user = userEvent.setup();
+    await user.type(screen.getByTestId('signup-username'), 'flowuser');
+    await user.type(screen.getByTestId('signup-password'), 'flow-pass-123');
+    await user.click(screen.getByTestId('signup-submit'));
+    await screen.findByTestId('login-message');
+    fetchMock.mockResolvedValue({ status: 200 });
+    await submit('flowuser', 'flow-pass-123');
+    expect(await screen.findByTestId('login-done')).toHaveTextContent(/^login done\.$/);
+    expect(fetchMock.mock.calls[0][0]).toMatch(/\/api\/signup$/);
+    expect(fetchMock.mock.calls[1][0]).toMatch(/\/api\/login$/);
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
+    expect(document.body.textContent).toBe('login done.');
+    expect(localStorage.length).toBe(0);
+    expect(sessionStorage.length).toBe(0);
+  });
 });
