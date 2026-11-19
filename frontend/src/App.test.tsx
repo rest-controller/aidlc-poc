@@ -48,6 +48,18 @@ describe('login flow', () => {
     expect(JSON.parse(init.body)).toEqual({ username: 'alice', password: 'secret' });
   });
 
+  // AC3.2.1: the demo credential is posted unchanged and lands on the done screen.
+  it('posts the demo credential exactly and shows the done screen', async () => {
+    const fetchMock = mockStatus(200);
+    renderAt('/');
+    await submit('demouser', 'demopassword');
+    expect(await screen.findByTestId('login-done')).toHaveTextContent(/^login done\.$/);
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual({
+      username: 'demouser',
+      password: 'demopassword',
+    });
+  });
+
   it.each([401, 400])('shows the failure message and stays on the form for %i', async (code) => {
     mockStatus(code);
     renderAt('/');
@@ -119,6 +131,27 @@ describe('login flow', () => {
     renderAt('/');
     await submit('alice', 'secret');
     await screen.findByText(FAILED);
+    expect(localStorage.length).toBe(0);
+    expect(sessionStorage.length).toBe(0);
+  });
+
+  // AC3.3.2, AC3.3.4: sign up, then log in, in one flow: nothing stored, plain done page.
+  it('leaves storage empty and the done page plain after sign-up then login', async () => {
+    const fetchMock = mockStatus(201);
+    renderAt('/signup');
+    const user = userEvent.setup();
+    await user.type(screen.getByTestId('signup-username'), 'flowuser');
+    await user.type(screen.getByTestId('signup-password'), 'flow-pass-123');
+    await user.click(screen.getByTestId('signup-submit'));
+    await screen.findByTestId('login-message');
+    fetchMock.mockResolvedValue({ status: 200 });
+    await submit('flowuser', 'flow-pass-123');
+    expect(await screen.findByTestId('login-done')).toHaveTextContent(/^login done\.$/);
+    expect(fetchMock.mock.calls[0][0]).toMatch(/\/api\/signup$/);
+    expect(fetchMock.mock.calls[1][0]).toMatch(/\/api\/login$/);
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
+    expect(document.body.textContent).toBe('login done.');
     expect(localStorage.length).toBe(0);
     expect(sessionStorage.length).toBe(0);
   });

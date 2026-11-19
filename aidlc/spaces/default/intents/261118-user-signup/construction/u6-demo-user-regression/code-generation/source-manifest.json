@@ -1,0 +1,9 @@
+{
+  "stage": "code-generation",
+  "unit": "u6-demo-user-regression",
+  "version": 1,
+  "writes": [
+    { "path": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "path": "frontend/src/App.test.tsx" }
+  ]
+}

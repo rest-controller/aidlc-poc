@@ -1,0 +1,12 @@
+{
+  "stage": "code-generation",
+  "unit": "u6-demo-user-regression",
+  "upstream_ids": ["US3.2", "AC3.2.1", "AC3.2.2", "FR6.2", "FR7.2"],
+  "coverage": [
+    { "id": "US3.2", "status": "OK", "target": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "id": "AC3.2.1", "status": "OK", "target": "frontend/src/App.test.tsx" },
+    { "id": "AC3.2.2", "status": "OK", "target": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "id": "FR6.2", "status": "OK", "target": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "id": "FR7.2", "status": "OK", "target": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" }
+  ]
+}

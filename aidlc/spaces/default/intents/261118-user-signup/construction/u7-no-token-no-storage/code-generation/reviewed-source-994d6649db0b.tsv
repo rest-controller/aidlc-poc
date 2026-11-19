@@ -1,0 +1,5 @@
+manifest	fcfe7d372b2cdd26fffd82db9fe310022bd3e40cdaab10d97676362516ed6a68	-
+	backend/src/test/java/com/example/authapi/ConsoleOutputTest.java	100644	600670347a278d393bfc408b03914bb4092f77b4b67b36ec09edf6c38812c972
+	backend/src/test/java/com/example/authapi/LoginControllerTest.java	100644	5164594957f0d0c5433adfde787b357caadf80de50ee4c7b9c912f050de61ace
+	backend/src/test/java/com/example/authapi/RequestPrintingTest.java	100644	3095e92acb2561a637c7e8f3e4c3264bfc72295c1c9e21f270aeb96f42b06f63
+	frontend/src/App.test.tsx	100644	07917000fb308c329575dbaa2e813420fcca80ff51d2e412b8df4ac87f30351a

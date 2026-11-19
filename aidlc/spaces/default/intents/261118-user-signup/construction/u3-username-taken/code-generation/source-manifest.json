@@ -1,0 +1,15 @@
+{
+  "stage": "code-generation",
+  "unit": "u3-username-taken",
+  "version": 1,
+  "writes": [
+    { "path": "backend/src/main/java/com/example/authapi/DemoCredential.java" },
+    { "path": "backend/src/main/java/com/example/authapi/AccountService.java" },
+    { "path": "backend/src/main/java/com/example/authapi/SignupController.java" },
+    { "path": "backend/src/test/java/com/example/authapi/AccountServiceTest.java" },
+    { "path": "backend/src/test/java/com/example/authapi/DemoCredentialTest.java" },
+    { "path": "backend/src/test/java/com/example/authapi/SignupControllerTest.java" },
+    { "path": "frontend/src/SignUpPage.tsx" },
+    { "path": "frontend/src/SignUpPage.test.tsx" }
+  ]
+}
