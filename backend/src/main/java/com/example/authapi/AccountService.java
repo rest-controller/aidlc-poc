@@ -66,4 +66,21 @@ public class AccountService {
         }
         return new Registration(Outcome.USERNAME_TAKEN, List.of(USERNAME_TAKEN));
     }
+
+    /**
+     * Login check (FR6.1, FR6.3, FR6.4; contract C2). The demo user's exact rule is tried first and
+     * is unchanged; otherwise the store is searched by the lower-case key of the typed username and
+     * the password must equal the stored one exactly. A single boolean is returned so nothing says
+     * whether the username or the password was wrong. Passwords are never logged.
+     */
+    public boolean authenticate(String username, String password) {
+        if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
+            return false;
+        }
+        if (demo.matches(username, password)) {
+            return true;
+        }
+        RegisteredUser user = store.findByKey(UserStore.keyOf(username));
+        return user != null && user.password().equals(password);
+    }
 }

@@ -1,8 +1,10 @@
 package com.example.authapi;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -180,5 +182,46 @@ class AccountServiceTest {
         assertEquals(1, registered);
         assertEquals(threads - 1, taken);
         assertNotNull(store.findByKey("racer"));
+    }
+
+    // AC3.1.1: a registered user logs in, in the same or another username letter case.
+    @Test
+    void registeredUserLogsInWithAnyUsernameCase() {
+        service.register("Alice", GOOD_PASSWORD);
+        assertTrue(service.authenticate("Alice", GOOD_PASSWORD));
+        assertTrue(service.authenticate("ALICE", GOOD_PASSWORD));
+        assertTrue(service.authenticate("alice", GOOD_PASSWORD));
+    }
+
+    // AC3.1.2: the password is compared exactly, letter case included.
+    @Test
+    void wrongPasswordCaseFails() {
+        service.register("Alice", "Pw-One-1234");
+        assertFalse(service.authenticate("Alice", "pw-one-1234"));
+        assertFalse(service.authenticate("Alice", "Pw-One-12345"));
+    }
+
+    // AC3.1.3: an unknown username fails.
+    @Test
+    void unknownUsernameFails() {
+        service.register("Alice", GOOD_PASSWORD);
+        assertFalse(service.authenticate("nobody", GOOD_PASSWORD));
+    }
+
+    // FR6.3, FR7.2: the demo user keeps its exact rule.
+    @Test
+    void demoUserStillLogsInAndWrongDemoPasswordFails() {
+        assertTrue(service.authenticate("demouser", "demopassword"));
+        assertFalse(service.authenticate("demouser", "wrong-pass"));
+        assertFalse(service.authenticate("DemoUser", "demopassword"));
+    }
+
+    @Test
+    void nullAndEmptyInputsFail() {
+        service.register("Alice", GOOD_PASSWORD);
+        assertFalse(service.authenticate(null, GOOD_PASSWORD));
+        assertFalse(service.authenticate("Alice", null));
+        assertFalse(service.authenticate("", GOOD_PASSWORD));
+        assertFalse(service.authenticate("Alice", ""));
     }
 }
