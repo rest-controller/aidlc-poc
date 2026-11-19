@@ -1,0 +1,16 @@
+{
+  "stage": "code-generation",
+  "unit": "u5-login-registered",
+  "upstream_ids": ["US3.1", "AC3.1.1", "AC3.1.2", "AC3.1.3", "AC3.1.4", "FR6.1", "FR6.3", "FR6.4", "FR7.2"],
+  "coverage": [
+    { "id": "US3.1", "status": "OK", "target": "backend/src/main/java/com/example/authapi/LoginController.java" },
+    { "id": "AC3.1.1", "status": "OK", "target": "backend/src/main/java/com/example/authapi/AccountService.java" },
+    { "id": "AC3.1.2", "status": "OK", "target": "backend/src/test/java/com/example/authapi/AccountServiceTest.java" },
+    { "id": "AC3.1.3", "status": "OK", "target": "backend/src/test/java/com/example/authapi/LoginControllerTest.java" },
+    { "id": "AC3.1.4", "status": "OK", "target": "backend/src/main/java/com/example/authapi/LoginController.java" },
+    { "id": "FR6.1", "status": "OK", "target": "backend/src/main/java/com/example/authapi/AccountService.java" },
+    { "id": "FR6.3", "status": "OK", "target": "backend/src/main/java/com/example/authapi/AccountService.java" },
+    { "id": "FR6.4", "status": "OK", "target": "backend/src/main/java/com/example/authapi/LoginController.java" },
+    { "id": "FR7.2", "status": "OK", "target": "backend/src/test/java/com/example/authapi/AccountServiceTest.java" }
+  ]
+}
