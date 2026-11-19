@@ -101,6 +101,68 @@ describe('sign-up flow', () => {
     }
   });
 
+  describe('400 answers with reason codes', () => {
+    const USERNAME_MSG = 'Username must be 3-20 letters, digits, underscores or hyphens.';
+    const PASSWORD_MSG = 'Password must be at least 8 characters.';
+    const GENERIC_MSG = 'Please check the username and password and try again.';
+
+    function answerWith(body: unknown) {
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ status: 400, json: async () => body }));
+    }
+
+    it('shows the username message for USERNAME_INVALID only', async () => {
+      answerWith({ success: false, errors: ['USERNAME_INVALID'] });
+      renderAt('/signup');
+      await fillAndSubmit('ab', 'secret-pass');
+      expect(await screen.findByText(USERNAME_MSG)).toBeInTheDocument();
+      expect(screen.getByTestId('signup-message')).toHaveTextContent(USERNAME_MSG);
+      expect(screen.getByTestId('signup-message')).not.toHaveTextContent(PASSWORD_MSG);
+    });
+
+    it('shows the password message for PASSWORD_INVALID only', async () => {
+      answerWith({ success: false, errors: ['PASSWORD_INVALID'] });
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'short');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(PASSWORD_MSG),
+      );
+      expect(screen.getByTestId('signup-message')).not.toHaveTextContent('Username must be');
+    });
+
+    it('shows both sentences in one message when both codes come back', async () => {
+      answerWith({ success: false, errors: ['USERNAME_INVALID', 'PASSWORD_INVALID'] });
+      renderAt('/signup');
+      await fillAndSubmit('a!', 'short');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(
+          `${USERNAME_MSG} ${PASSWORD_MSG}`,
+        ),
+      );
+    });
+
+    it('shows the generic message for a 400 without codes', async () => {
+      answerWith({ success: false });
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'secret-pass');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(GENERIC_MSG),
+      );
+    });
+
+    it('keeps the username, clears the password and re-enables the button', async () => {
+      answerWith({ success: false, errors: ['PASSWORD_INVALID'] });
+      renderAt('/signup');
+      await fillAndSubmit('alice', 'short');
+      await waitFor(() =>
+        expect(screen.getByTestId('signup-message')).toHaveTextContent(PASSWORD_MSG),
+      );
+      expect(screen.getByTestId('signup-username')).toHaveValue('alice');
+      expect(screen.getByTestId('signup-password')).toHaveValue('');
+      expect(screen.getByTestId('signup-submit')).toBeEnabled();
+      expect(screen.getByTestId('probe').dataset.path).toBe('/signup');
+    });
+  });
+
   it('has labelled fields with hints tied to them', () => {
     renderAt('/signup');
     const username = screen.getByLabelText('Username');

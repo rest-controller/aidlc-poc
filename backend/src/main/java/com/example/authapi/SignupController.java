@@ -20,16 +20,20 @@ public class SignupController {
 
     @PostMapping(value = "/signup", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<LoginResult> signup(@RequestBody SignupRequest request) {
+    public ResponseEntity<SignupResult> signup(@RequestBody SignupRequest request) {
         // A missing or null field is a malformed request (BR1.1); the answer names no field.
         if (request.username() == null || request.password() == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new LoginResult(false));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new SignupResult(false));
         }
         // No cookie, token or session is issued, and the password is never echoed (BR1.6, BR1.7).
-        return switch (accounts.register(request.username(), request.password())) {
-            case REGISTERED -> ResponseEntity.status(HttpStatus.CREATED).body(new LoginResult(true));
+        AccountService.Registration result = accounts.register(request.username(), request.password());
+        return switch (result.outcome()) {
+            case REGISTERED -> ResponseEntity.status(HttpStatus.CREATED).body(new SignupResult(true));
+            // A failed rule answers 400 with its reason codes (contract C1, FR2.3).
+            case INVALID -> ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new SignupResult(false, result.errors()));
             // The message and reason codes for a taken name arrive in a later unit.
-            case USERNAME_TAKEN -> ResponseEntity.status(HttpStatus.CONFLICT).body(new LoginResult(false));
+            case USERNAME_TAKEN -> ResponseEntity.status(HttpStatus.CONFLICT).body(new SignupResult(false));
         };
     }
 }

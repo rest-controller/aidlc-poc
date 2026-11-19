@@ -70,6 +70,51 @@ class SignupControllerTest {
     }
 
     @Test
+    void invalidUsernameReturns400WithUsernameCode() throws Exception {
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"ab\",\"password\":\"pw-test-1234\"}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().json("{\"success\":false,\"errors\":[\"USERNAME_INVALID\"]}", true));
+        assertNull(store.findByKey("ab"));
+    }
+
+    @Test
+    void invalidPasswordReturns400WithPasswordCode() throws Exception {
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"shortpw1\",\"password\":\"1234567\"}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().json("{\"success\":false,\"errors\":[\"PASSWORD_INVALID\"]}", true));
+        assertNull(store.findByKey("shortpw1"));
+    }
+
+    @Test
+    void bothRulesFailingReturn400WithBothCodesInOrder() throws Exception {
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"bad name\",\"password\":\"short\"}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().json(
+                        "{\"success\":false,\"errors\":[\"USERNAME_INVALID\",\"PASSWORD_INVALID\"]}", true));
+        assertNull(store.findByKey("bad name"));
+    }
+
+    @Test
+    void nullFieldsStay400WithoutErrors() throws Exception {
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":null,\"password\":null}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.errors").doesNotExist())
+                .andExpect(content().json(FAILURE, true));
+    }
+
+    @Test
+    void createdAnswerHasNoErrorsField() throws Exception {
+        mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"clean1\",\"password\":\"pw-test-1234\"}"))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.errors").doesNotExist());
+    }
+
+    @Test
     void malformedJsonReturns400() throws Exception {
         mvc.perform(post("/api/signup").contentType(MediaType.APPLICATION_JSON).content("not json"))
                 .andExpect(status().isBadRequest())
